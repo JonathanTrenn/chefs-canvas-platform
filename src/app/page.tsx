@@ -1,33 +1,16 @@
-import { notFound } from "next/navigation";
-import { client } from "../sanity/client";
-import DishTemplate from "./components/DishTemplate";
-
-export default async function HomePage() {
-  const query = `
-    *[_type == "dish"][0]{
-      title,
-      description,
-      story,
-      features,
-      quoteText,
-      quoteSource
-    }
-  `;
-
-  const dish = await client.fetch(query);
-
-  if (!dish) {
-    notFound();
-  }
-
+export default function HomePage() {
   return (
-    <DishTemplate
-      title={dish.title ?? ""}
-      subtitle={dish.description ?? ""}
-      story={dish.story}
-      features={dish.features}
-      quoteText={dish.quoteText}
-      quoteSource={dish.quoteSource}
-    />
+    <main style={{ padding: 24, fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, Arial" }}>
+      <h1 style={{ margin: 0 }}>Chef’s Canvas</h1>
+      <p style={{ marginTop: 8 }}>
+        Home page placeholder. Use a dish URL like:
+      </p>
+      <code style={{ display: "block", padding: 12, background: "#f5f5f5", borderRadius: 8 }}>
+        /rosa-figlio/dish/chianti-braised-short-rib
+      </code>
+      <p style={{ marginTop: 12 }}>
+        Next step: build a Restaurant Directory page here.
+      </p>
+    </main>
   );
 }
