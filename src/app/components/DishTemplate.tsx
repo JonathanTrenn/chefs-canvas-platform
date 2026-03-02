@@ -15,6 +15,7 @@ export default function DishTemplate({
   quoteSource,
   gallery,
   wistiaVideoId,
+  heroImageUrl,
 }: {
   title: string;
   subtitle: string;
@@ -24,6 +25,7 @@ export default function DishTemplate({
   quoteSource?: string;
   gallery?: GalleryItem[];
   wistiaVideoId?: string;
+  heroImageUrl?: string;
 }) {
   const g0 = gallery?.[0];
   const g1 = gallery?.[1];
@@ -64,6 +66,12 @@ export default function DishTemplate({
             <div className="hero-video-inner">
               {wistiaVideoId ? (
                 <WistiaEmbed wistiaVideoId={wistiaVideoId} className="h-full w-full" />
+              ) : heroImageUrl ? (
+                <img
+                  src={heroImageUrl}
+                  alt=""
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
               ) : (
                 <div className="play-button"></div>
               )}

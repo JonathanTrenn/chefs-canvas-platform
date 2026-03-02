@@ -18,6 +18,7 @@ type Dish = {
   quoteSource?: string;
   gallery?: GalleryItem[];
   wistiaVideoId?: string;
+  heroImageUrl?: string;
 };
 
 async function getDish(rs: string, ds: string): Promise<Dish | null> {
@@ -33,6 +34,7 @@ async function getDish(rs: string, ds: string): Promise<Dish | null> {
       quoteText,
       quoteSource,
       wistiaVideoId,
+      "heroImageUrl": heroImage.asset->url,
       "gallery": gallery[]{
         "url": asset->url,
         "alt": alt
@@ -63,6 +65,7 @@ export default async function DishPage(props: {
       quoteSource={dish.quoteSource}
       gallery={dish.gallery}
       wistiaVideoId={dish.wistiaVideoId}
+      heroImageUrl={dish.heroImageUrl}
     />
   );
 }
