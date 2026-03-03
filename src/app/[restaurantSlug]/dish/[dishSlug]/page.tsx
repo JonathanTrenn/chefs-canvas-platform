@@ -9,6 +9,13 @@ type GalleryItem = {
   alt?: string;
 };
 
+type DishCta = {
+  label?: string;
+  url?: string;
+  enabled?: boolean;
+  isPrimary?: boolean;
+};
+
 type Dish = {
   title?: string;
   description?: string;
@@ -19,6 +26,12 @@ type Dish = {
   gallery?: GalleryItem[];
   wistiaVideoId?: string;
   heroImageUrl?: string;
+
+  // Ticket 3.6.3a (CTA wiring)
+  ctaTitle?: string;
+  ctaSubtitle?: string;
+  ctaNote?: string;
+  ctas?: DishCta[];
 };
 
 async function getDish(rs: string, ds: string): Promise<Dish | null> {
@@ -35,6 +48,18 @@ async function getDish(rs: string, ds: string): Promise<Dish | null> {
       quoteSource,
       wistiaVideoId,
       "heroImageUrl": heroImage.asset->url,
+
+      // Ticket 3.6.3a (CTA wiring)
+      ctaTitle,
+      ctaSubtitle,
+      ctaNote,
+      "ctas": ctas[]{
+        label,
+        url,
+        enabled,
+        isPrimary
+      },
+
       "gallery": gallery[]{
         "url": asset->url,
         "alt": alt
@@ -66,6 +91,12 @@ export default async function DishPage(props: {
       gallery={dish.gallery}
       wistiaVideoId={dish.wistiaVideoId}
       heroImageUrl={dish.heroImageUrl}
+
+      // Ticket 3.6.3a (CTA wiring)
+      ctaTitle={dish.ctaTitle}
+      ctaSubtitle={dish.ctaSubtitle}
+      ctaNote={dish.ctaNote}
+      ctas={dish.ctas}
     />
   );
 }

@@ -6,6 +6,13 @@ type GalleryItem = {
   alt?: string;
 };
 
+type DishCta = {
+  label?: string;
+  url?: string;
+  enabled?: boolean;
+  isPrimary?: boolean;
+};
+
 export default function DishTemplate({
   title,
   subtitle,
@@ -16,6 +23,12 @@ export default function DishTemplate({
   gallery,
   wistiaVideoId,
   heroImageUrl,
+
+  // Ticket 3.6.3a (CTA wiring)
+  ctaTitle,
+  ctaSubtitle,
+  ctaNote,
+  ctas,
 }: {
   title: string;
   subtitle: string;
@@ -26,6 +39,12 @@ export default function DishTemplate({
   gallery?: GalleryItem[];
   wistiaVideoId?: string;
   heroImageUrl?: string;
+
+  // Ticket 3.6.3a (CTA wiring)
+  ctaTitle?: string;
+  ctaSubtitle?: string;
+  ctaNote?: string;
+  ctas?: DishCta[];
 }) {
   const g0 = gallery?.[0];
   const g1 = gallery?.[1];
@@ -65,7 +84,10 @@ export default function DishTemplate({
           <div className="hero-video">
             <div className="hero-video-inner">
               {wistiaVideoId ? (
-                <WistiaEmbed wistiaVideoId={wistiaVideoId} className="h-full w-full" />
+                <WistiaEmbed
+                  wistiaVideoId={wistiaVideoId}
+                  className="h-full w-full"
+                />
               ) : heroImageUrl ? (
                 <img
                   src={heroImageUrl}
@@ -106,7 +128,8 @@ export default function DishTemplate({
         <aside className="cta-panel">
           <div className="cta-title">Make It a Tuscan Night</div>
           <div className="cta-subtitle">
-            Red wine, rosemary, and slow heat—this is the dish that turns dinner into an occasion.
+            Red wine, rosemary, and slow heat—this is the dish that turns dinner
+            into an occasion.
           </div>
 
           <div className="cta-buttons">
@@ -128,8 +151,9 @@ export default function DishTemplate({
           </div>
 
           <div className="cta-note">
-            In a full Chef’s Canvas rollout, these buttons connect directly to reservations, ordering,
-            and maps—so guests can move from story to action in one tap.
+            In a full Chef’s Canvas rollout, these buttons connect directly to
+            reservations, ordering, and maps—so guests can move from story to
+            action in one tap.
           </div>
         </aside>
       </section>
@@ -172,7 +196,9 @@ export default function DishTemplate({
           {quoteText ? (
             <div className="quote-bubble">
               “{quoteText}”
-              {quoteSource ? <div className="quote-source">{quoteSource}</div> : null}
+              {quoteSource ? (
+                <div className="quote-source">{quoteSource}</div>
+              ) : null}
             </div>
           ) : null}
         </div>
