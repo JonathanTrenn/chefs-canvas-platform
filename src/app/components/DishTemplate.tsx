@@ -126,36 +126,52 @@ export default function DishTemplate({
 
         {/* RIGHT: CTA (still hardcoded for now) */}
         <aside className="cta-panel">
-          <div className="cta-title">Make It a Tuscan Night</div>
-          <div className="cta-subtitle">
-            Red wine, rosemary, and slow heat—this is the dish that turns dinner
-            into an occasion.
-          </div>
+  <div className="cta-title">{ctaTitle ?? "Make It a Tuscan Night"}</div>
 
-          <div className="cta-buttons">
-            <a href="#" className="cta-button primary">
-              Reserve a Table
-            </a>
-            <a href="#" className="cta-button">
-              Order for Pickup
-            </a>
-            <a href="#" className="cta-button">
-              Join Our Email List
-            </a>
-            <a href="#" className="cta-button">
-              Get Directions
-            </a>
-            <a href="#" className="cta-button">
-              Call Rosa &amp; Figlio
-            </a>
-          </div>
+  <div className="cta-subtitle">
+    {ctaSubtitle ??
+      "This section will become CMS-controlled in a later Phase 3 step."}
+  </div>
 
-          <div className="cta-note">
-            In a full Chef’s Canvas rollout, these buttons connect directly to
-            reservations, ordering, and maps—so guests can move from story to
-            action in one tap.
-          </div>
-        </aside>
+  <div className="cta-buttons">
+    {ctas?.length
+      ? ctas
+          .filter((c) => c?.enabled !== false)
+          .map((c, i) => (
+            <a
+              key={`cta-${i}`}
+              href={c?.url ?? "#"}
+              className={`cta-button${c?.isPrimary ? " primary" : ""}`}
+            >
+              {c?.label ?? "CTA"}
+            </a>
+          ))
+      : (
+        <>
+          <a href="#" className="cta-button primary">
+            Reserve a Table
+          </a>
+          <a href="#" className="cta-button">
+            Order for Pickup
+          </a>
+          <a href="#" className="cta-button">
+            Join Our Email List
+          </a>
+          <a href="#" className="cta-button">
+            Get Directions
+          </a>
+          <a href="#" className="cta-button">
+            Call Restaurant
+          </a>
+        </>
+      )}
+  </div>
+
+  <div className="cta-note">
+    {ctaNote ??
+      "CTA content stays static for now (Phase 3 safety rule)."}
+  </div>
+</aside>
       </section>
 
       {/* STORY + FEATURES + QUOTE */}
