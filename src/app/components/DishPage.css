@@ -224,17 +224,15 @@
     gap: 16px;
     margin-top: 20px;
 }
+
 .gallery-item {
     flex: 1;
-    height: 130px;
+    height: 350px;
+    min-height: 350px;
     background: #ecd8c3;
     border-radius: 10px;
     border: 1px solid var(--border-soft);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.85rem;
-    color: #5a3b2c;
+    overflow: hidden;
 }
 
 /* Responsive Overrides */
@@ -243,4 +241,160 @@
     .logo-placeholder, .qr-box-header { display: none; }
     .gallery-row { flex-direction: column; }
     .hero-video, .cta-panel { height: auto; min-height: 300px; }
+}
+
+/* ── Restaurant Theme Overrides ─────────────────────────── */
+
+/* Rosa & Figlio — Warm Tuscan */
+.page[data-restaurant="rosa-figlio"] {
+    --berbere-red: #7B2D1E;
+    --sun-gold: #C8962A;
+    --injera-cream: #FAF6EF;
+    --coffee-brown: #1A1208;
+}
+.page[data-restaurant="rosa-figlio"] .hero-video {
+    background: radial-gradient(circle at top, #7B2D1E 0, #3D1A0E 55%, #1A0A06 100%);
+}
+.page[data-restaurant="rosa-figlio"] .cta-panel {
+    background: linear-gradient(150deg, #7B2D1E, #A0402E);
+}
+
+/* Ember & Oak — Dark Charcoal */
+.page[data-restaurant="ember-and-oak"] {
+    --berbere-red: #C23B2B;
+    --sun-gold: #D29A3A;
+    --injera-cream: #F3EFE7;
+    --coffee-brown: #1F1F1F;
+}
+.page[data-restaurant="ember-and-oak"] .hero-video {
+    background: radial-gradient(circle at top, #C23B2B 0, #2A1411 55%, #0B0B0B 100%);
+}
+.page[data-restaurant="ember-and-oak"] .cta-panel {
+    background: linear-gradient(150deg, #141414, #4A2A1E);
+}
+.page[data-restaurant="ember-and-oak"] .nav-button {
+    background: #F3E3CE;
+    color: #2B2B2B;
+}
+.page[data-restaurant="ember-and-oak"] .nav-button:hover {
+    background: #ECD6BC;
+}
+
+/* Alta Marina — Coastal Blue */
+.page[data-restaurant="alta-marina"] {
+    --berbere-red: #2AA6C6;
+    --sun-gold: #D7B36A;
+    --injera-cream: #EEF6FB;
+    --coffee-brown: #0F2430;
+}
+.page[data-restaurant="alta-marina"] .hero-video {
+    background: radial-gradient(circle at top, #2AA6C6 0, #10384B 55%, #050914 100%);
+}
+.page[data-restaurant="alta-marina"] .cta-panel {
+    background: linear-gradient(150deg, #0B2A3A, #2F6B84);
+}
+.page[data-restaurant="alta-marina"] .nav-button {
+    background: #E7F2F6;
+    color: #123044;
+}
+.page[data-restaurant="alta-marina"] .nav-button:hover {
+    background: #D9EEF4;
+}
+.page[data-restaurant="alta-marina"] .logo-placeholder,
+.page[data-restaurant="alta-marina"] .qr-box-header {
+    background: #DCF2F8;
+    color: #143344;
+}
+
+/* Negash's Ethiopian Cafe — Warm Earth */
+.page[data-restaurant="negashs-ethiopian-cafe"] {
+    --berbere-red: #8B2C20;
+    --sun-gold: #D3A53A;
+    --injera-cream: #F5ECDE;
+    --coffee-brown: #3B241A;
+}
+.page[data-restaurant="negashs-ethiopian-cafe"] .hero-video {
+    background: radial-gradient(circle at top, #8B2C20 0, #3B1A14 55%, #120705 100%);
+}
+.page[data-restaurant="negashs-ethiopian-cafe"] .cta-panel {
+    background: linear-gradient(150deg, #2B3D2B, #5B7A42);
+}
+
+/* Seasons 52 — Fresh Green */
+[data-restaurant="seasons-52"] {
+    --berbere-red: #729A4C;
+    --injera-cream: #faf6ef;
+    --coffee-brown: #2c1a0e;
+    --deep-green: #2d4a1e;
+    --sun-gold: #729A4C;
+    --border-soft: rgba(0,0,0,0.12);
+}
+
+[data-restaurant="seasons-52"] body,
+[data-restaurant="seasons-52"] .dish-page-body {
+    background: radial-gradient(circle at top, #2d4a1e, #0a1a05 60%);
+}
+
+[data-restaurant="seasons-52"] .hero-video {
+    background: radial-gradient(circle at top, #4a7a2e 0, #1a3a10 55%, #0a1a05 100%);
+}
+
+[data-restaurant="seasons-52"] .nav-button {
+    background: #f0e8d8;
+    color: #2c1a0e;
+}
+
+[data-restaurant="seasons-52"] .nav-button:hover {
+    background: #e8dcc8;
+}
+
+[data-restaurant="seasons-52"] .cta-panel {
+    background: linear-gradient(150deg, #2d4a1e, #4a7a2e);
+}
+
+[data-restaurant="seasons-52"] .cta-button.primary {
+    background: #729A4C;
+    color: #ffffff;
+}
+
+[data-restaurant="seasons-52"] .story-title {
+    color: #729A4C;
+}
+
+[data-restaurant="seasons-52"] .dish-title {
+    color: #2c1a0e;
+}
+
+[data-restaurant="seasons-52"] .features-list li::marker {
+    color: #729A4C;
+}
+
+[data-restaurant="seasons-52"] .quote-bubble {
+    background: #2d4a1e;
+}
+
+[data-restaurant="seasons-52"] .gallery-item {
+    background: #d8e8c8;
+}
+
+[data-restaurant="seasons-52"] .logo-placeholder,
+[data-restaurant="seasons-52"] .qr-box-header {
+    background: #e8f0d8;
+    color: #2d4a1e;
+}
+
+[data-restaurant="seasons-52"] .logo-placeholder .mark {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    opacity: 0.9;
+    margin-top: 4px;
+}
+
+.logo-placeholder .mark {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    opacity: 0.9;
+    margin-top: 4px;
 }

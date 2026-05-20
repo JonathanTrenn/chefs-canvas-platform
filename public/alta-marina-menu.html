@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alta Marina – Coastal Menu</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: "Georgia", serif;
+            background: #050914;
+            color: #eef5fb;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 24px 18px 40px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .brand {
+            font-size: 1.6rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #f7f9fc;
+        }
+
+        .title {
+            font-size: 1.1rem;
+            margin-top: 6px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.35);
+            background: #e6f2f5;
+            color: #123044;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .back-link:hover {
+            filter: brightness(0.96);
+        }
+
+        .menu-section {
+            margin-bottom: 26px;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: #9fd4e5;
+        }
+
+        .dish-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(225,235,242,0.12);
+        }
+
+        .dish-name {
+            font-weight: 600;
+        }
+
+        .dish-desc {
+            font-size: 0.9rem;
+            opacity: 0.86;
+            margin-top: 4px;
+        }
+
+        .dish-price {
+            white-space: nowrap;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .note {
+            margin-top: 18px;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 700px) {
+            .dish-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .dish-price {
+                margin-top: 4px;
+            }
+        }
+        /* Force dish text to be left-aligned (stronger rule) */
+.dish-row .dish-name,
+.dish-row .dish-desc {
+    text-align: left !important;
+}
+
+        /* Make menu dish links look like normal menu text */
+.dish-name a {
+    color: inherit;        /* prevent purple/blue link color */
+    text-decoration: none; /* remove underline */
+    display: block;        /* keep dish name on its own line */
+}
+
+/* Optional hover effect */
+.dish-name a:hover {
+    text-decoration: underline;
+}
+/* --- Alta menu: force dish name + description to stack vertically --- */
+.dish-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.dish-row > div:first-child {
+    display: block;
+    text-align: left;
+}
+
+.dish-name,
+.dish-desc {
+    display: block;
+    text-align: left;
+}
+
+.dish-name a {
+    display: inline;          /* keep link from acting weird */
+    color: inherit;
+    text-decoration: none;
+}
+
+.dish-desc {
+    margin-top: 4px;
+}
+
+.dish-name a:hover {
+    text-decoration: underline;
+}/* FIX: Alta menu dish rows — left aligned + title above description */
+.dish-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.dish-row > div:first-child {
+  display: block;
+  text-align: left !important;
+}
+
+.dish-name {
+  display: block !important;
+  text-align: left !important;
+}
+
+.dish-desc {
+  display: block !important;
+  text-align: left !important;
+  margin-top: 4px;
+}
+
+/* Links should not change layout or color */
+.dish-name a {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.dish-name a:hover {
+  text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <header>
+        <div class="brand">Alta Marina</div>
+        <div class="title">Coastal Dinner Menu</div>
+
+    <section class="menu-section">
+        <div class="section-title">From the Water</div>
+<a href="alta-home.html" class="back-link">
+  ← Back to Alta Marina Home
+</a>
+
+        <div class="dish-row">
+            <div>
+                <div class="dish-name">
+    <a href="http://localhost:3000/alta-marina/dish/charred-lemon-branzino">Charred Lemon Branzino</a>
+</div>
+                <div class="dish-desc">
+                    Featured dish – whole Mediterranean sea bass, fennel &amp; olive relish, citrus herb oil.
+                </div>
+            </div>
+            <div class="dish-price">$42</div>
+        </div>
+
+        <div class="dish-row">
+            <div>
+                <div class="dish-name">Seared Scallops with Saffron Broth</div>
+                <div class="dish-desc">
+                    Diver scallops, saffron shellfish broth, fennel pollen, grilled sourdough.
+                </div>
+            </div>
+            <div class="dish-price">$39</div>
+        </div>
+
+        <div class="dish-row">
+            <div>
+                <div class="dish-name">Meyer Lemon Poached Halibut</div>
+                <div class="dish-desc">
+                    Halibut, charred leeks, roasted fingerlings, preserved lemon beurre blanc.
+                </div>
+            </div>
+            <div class="dish-price">$44</div>
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <div class="section-title">Coastal Starters</div>
+
+        <div class="dish-row">
+            <div>
+                <div class="dish-name">Harbor Crudo</div>
+                <div class="dish-desc">
+                    Rotating selection of raw fish, citrus, sea salt, cold-pressed olive oil.
+                </div>
+            </div>
+            <div class="dish-price">$21</div>
+        </div>
+
+        <div class="dish-row">
+            <div>
+                <div class="dish-name">Grilled Octopus &amp; Warm Potatoes</div>
+                <div class="dish-desc">
+                    Smoked paprika, lemon, capers, herb vinaigrette.
+                </div>
+            </div>
+            <div class="dish-price">$23</div>
+        </div>
+    </section>
+
+    <p class="note">
+        In a full Chef’s Canvas build, each of these dishes could have its own video story,
+        interactive elements, and structured data powering AI search and recommendations.
+    </p>
+
+</div>
+</body>
+</html>

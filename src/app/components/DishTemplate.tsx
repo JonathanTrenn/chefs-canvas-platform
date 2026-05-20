@@ -1,6 +1,7 @@
 import { PortableText } from "@portabletext/react";
 import WistiaEmbed from "./WistiaEmbed";
-
+import ShareButton from "./ShareButton";
+import SaveButton from "./SaveButton";
 type GalleryItem = {
   url?: string;
   alt?: string;
@@ -13,6 +14,14 @@ type DishCta = {
   isPrimary?: boolean;
 };
 
+
+const restaurantMeta: Record<string, { name: string; tagline: string }> = {
+  "rosa-figlio": { name: "Rosa & Figlio", tagline: "TUSCAN • CHIANTI • RISOTTO" },
+  "ember-and-oak": { name: "Ember & Oak", tagline: "FIRE • BONE • BUTTER" },
+  "alta-marina": { name: "Alta Marina", tagline: "COASTAL • CITRUS • CHAR" },
+  "negashs-ethiopian-cafe": { name: "Negash's Ethiopian Cafe", tagline: "COFFEE • INJERA • WAT" },
+  "seasons-52": { name: "Seasons 52", tagline: "FRESH • SEASONAL • WOOD-FIRED • WINE BAR" },
+};
 export default function DishTemplate({
   title,
   subtitle,
@@ -24,11 +33,14 @@ export default function DishTemplate({
   wistiaVideoId,
   heroImageUrl,
 
-  // Ticket 3.6.3a (CTA wiring)
   ctaTitle,
   ctaSubtitle,
   ctaNote,
   ctas,
+
+  restaurantSlug,
+  prevDishSlug,
+  nextDishSlug,
 }: {
   title: string;
   subtitle: string;
@@ -40,27 +52,45 @@ export default function DishTemplate({
   wistiaVideoId?: string;
   heroImageUrl?: string;
 
-  // Ticket 3.6.3a (CTA wiring)
   ctaTitle?: string;
   ctaSubtitle?: string;
   ctaNote?: string;
   ctas?: DishCta[];
+
+  restaurantSlug: string;
+  prevDishSlug?: string;
+  nextDishSlug?: string;
 }) {
   const g0 = gallery?.[0];
   const g1 = gallery?.[1];
   const g2 = gallery?.[2];
 
+const previousHref = prevDishSlug
+  ? `/${restaurantSlug}/dish/${prevDishSlug}`
+  : undefined;
+
+const nextHref = nextDishSlug
+  ? `/${restaurantSlug}/dish/${nextDishSlug}`
+  : undefined;
+  const displayQuoteText =
+    quoteText ??
+    "One of the most memorable dishes I’ve had in years — rich, comforting, and beautifully presented.";
+
+  const displayQuoteSource = quoteSource ?? "Prototype Guest Review";const meta = restaurantMeta[restaurantSlug] ?? {
+    name: restaurantSlug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
+    tagline: "",
+  };
+
   return (
-    <div className="page">
+    <div className="page" data-restaurant={restaurantSlug}>
       <a href="#" className="return-directory">
         ← Return to Restaurant Directory
       </a>
 
-      {/* HEADER */}
       <header className="top-header">
         <div className="logo-placeholder">
-          ROSA &amp; FIGLIO
-          <span className="mark">TUSCAN • CHIANTI • RISOTTO</span>
+          {meta.name}
+          <span className="mark">{meta.tagline}</span>
         </div>
 
         <div className="dish-heading">
@@ -69,17 +99,17 @@ export default function DishTemplate({
         </div>
 
         <div className="qr-box-header">
-          QR Code<br />
-          view this dish<br />
+          QR Code
+          <br />
+          view this dish
+          <br />
           on your phone
         </div>
       </header>
 
       <div className="header-divider"></div>
 
-      {/* HERO */}
       <section className="hero-grid">
-        {/* LEFT: video + nav */}
         <div className="hero-left">
           <div className="hero-video">
             <div className="hero-video-inner">
@@ -100,83 +130,92 @@ export default function DishTemplate({
             </div>
           </div>
 
-          {/* UNIFIED NAV BAR */}
           <div className="video-nav-unified">
-            <button className="nav-button">
-              <span className="icon">★</span> Save
-            </button>
+           <SaveButton />
 
-            <button className="nav-button">
-              <span className="icon">←</span> Previous
-            </button>
+            {previousHref ? (
+  <form action={previousHref} style={{ display: "contents" }}>
+    <button type="submit" className="nav-button">
+      <span className="icon">←</span> Previous
+    </button>
+  </form>
+) : (
+  <button type="button" className="nav-button" disabled>
+    <span className="icon">←</span> Previous
+  </button>
+)}
 
-            <a href="#" className="nav-button">
-              <span className="icon"></span>Back to Menu
-            </a>
+          <form action={`/${restaurantSlug}/menu`} style={{ display: "contents" }}>
+  <button type="submit" className="nav-button">
+    <span className="icon"></span>Back to Menu
+  </button>
+</form>
 
-            <button className="nav-button">
-              Next <span className="icon">→</span>
-            </button>
+{nextHref ? (
+  <form action={nextHref} style={{ display: "contents" }}>
+    <button type="submit" className="nav-button">
+      Next <span className="icon">→</span>
+    </button>
+  </form>
+) : (
+  <button type="button" className="nav-button" disabled>
+    Next <span className="icon">→</span>
+  </button>
+)}
 
-            <button className="nav-button">
-              <span className="icon">↗</span> Share
-            </button>
+           <ShareButton />
           </div>
         </div>
 
-        {/* RIGHT: CTA (still hardcoded for now) */}
         <aside className="cta-panel">
-  <div className="cta-title">{ctaTitle ?? "Make It a Tuscan Night"}</div>
+          <div className="cta-title">{ctaTitle ?? "Make It a Tuscan Night"}</div>
 
-  <div className="cta-subtitle">
-    {ctaSubtitle ??
-      "This section will become CMS-controlled in a later Phase 3 step."}
-  </div>
+          <div className="cta-subtitle">
+            {ctaSubtitle ??
+              "This section will become CMS-controlled in a later Phase 3 step."}
+          </div>
 
-  <div className="cta-buttons">
-    {ctas?.length
-      ? ctas
-          .filter((c) => c?.enabled !== false)
-          .map((c, i) => (
-            <a
-              key={`cta-${i}`}
-              href={c?.url ?? "#"}
-              className={`cta-button${c?.isPrimary ? " primary" : ""}`}
-            >
-              {c?.label ?? "CTA"}
-            </a>
-          ))
-      : (
-        <>
-          <a href="#" className="cta-button primary">
-            Reserve a Table
-          </a>
-          <a href="#" className="cta-button">
-            Order for Pickup
-          </a>
-          <a href="#" className="cta-button">
-            Join Our Email List
-          </a>
-          <a href="#" className="cta-button">
-            Get Directions
-          </a>
-          <a href="#" className="cta-button">
-            Call Restaurant
-          </a>
-        </>
-      )}
-  </div>
+          <div className="cta-buttons">
+            {ctas?.length
+              ? ctas
+                  .filter((c) => c?.enabled !== false)
+                  .map((c, i) => (
+                    <a
+                      key={`cta-${i}`}
+                      href={c?.url ?? "#"}
+                      className={`cta-button${c?.isPrimary ? " primary" : ""}`}
+                    >
+                      {c?.label ?? "CTA"}
+                    </a>
+                  ))
+              : (
+                <>
+                  <a href="#" className="cta-button primary">
+                    Reserve a Table
+                  </a>
+                  <a href="#" className="cta-button">
+                    Order for Pickup
+                  </a>
+                  <a href="#" className="cta-button">
+                    Join Our Email List
+                  </a>
+                  <a href="#" className="cta-button">
+                    Get Directions
+                  </a>
+                  <a href="#" className="cta-button">
+                    Call Restaurant
+                  </a>
+                </>
+              )}
+          </div>
 
-  <div className="cta-note">
-    {ctaNote ??
-      "CTA content stays static for now (Phase 3 safety rule)."}
-  </div>
-</aside>
+          <div className="cta-note">
+            {ctaNote ?? "CTA content stays static for now (Phase 3 safety rule)."}
+          </div>
+        </aside>
       </section>
 
-      {/* STORY + FEATURES + QUOTE */}
       <section className="story-quote-grid">
-        {/* STORY */}
         <article className="story-column">
           <h2 className="story-title">The Story Behind the Dish</h2>
           {story?.length ? (
@@ -186,41 +225,38 @@ export default function DishTemplate({
           ) : null}
         </article>
 
-        {/* FEATURES */}
         <section className="features-wrapper">
           <h2 className="features-title">Features</h2>
           <div className="features-list">
             {features?.length ? (
               <>
-                <ul>
-                  {features.slice(0, 3).map((item, i) => (
-                    <li key={`f1-${i}`}>{item}</li>
-                  ))}
-                </ul>
-                <ul>
-                  {features.slice(3, 6).map((item, i) => (
-                    <li key={`f2-${i}`}>{item}</li>
-                  ))}
-                </ul>
+               {features?.length ? (
+  <>
+    <ul>
+      {features.slice(0, Math.ceil(features.length / 2)).map((item, i) => (
+        <li key={`f1-${i}`}>{item}</li>
+      ))}
+    </ul>
+    <ul>
+      {features.slice(Math.ceil(features.length / 2)).map((item, i) => (
+        <li key={`f2-${i}`}>{item}</li>
+      ))}
+    </ul>
+  </>
+) : null}
               </>
             ) : null}
           </div>
         </section>
 
-        {/* QUOTE (CMS-driven) */}
         <div className="quote-column">
-          {quoteText ? (
-            <div className="quote-bubble">
-              “{quoteText}”
-              {quoteSource ? (
-                <div className="quote-source">{quoteSource}</div>
-              ) : null}
-            </div>
-          ) : null}
+          <div className="quote-bubble">
+            “{displayQuoteText}”
+            <div className="quote-source">{displayQuoteSource}</div>
+          </div>
         </div>
       </section>
 
-      {/* GALLERY (CMS-driven images, structure preserved) */}
       <section className="gallery-row">
         <div className="gallery-item">
           {g0?.url ? (

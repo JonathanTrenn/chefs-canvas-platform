@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rosa &amp; Figlio – Chef’s Canvas Menu</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Georgia", "Times New Roman", serif;
+      background: #2b201f;
+      color: #f7ecde;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 18px 40px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .brand {
+      font-size: 1.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #f9e6d1;
+    }
+
+    .title {
+      font-size: 1.2rem;
+      margin-top: 6px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      opacity: 0.82;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.5;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      background: #f4e1c9;
+      color: #3e2520;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+
+    .back-link:hover {
+      filter: brightness(0.96);
+    }
+
+    .menu-section {
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      color: #f3d0ae;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 8px;
+    }
+
+    .dish-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .dish-main {
+      max-width: 760px;
+    }
+
+    .dish-name {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .dish-desc {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      margin-top: 4px;
+      line-height: 1.45;
+    }
+
+    .dish-price {
+      white-space: nowrap;
+      font-size: 0.95rem;
+      opacity: 0.95;
+      padding-left: 10px;
+    }
+
+    .menu-link {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(247, 236, 222, 0.55);
+    }
+
+    .menu-link:hover {
+      border-bottom-style: solid;
+    }
+
+    .featured-label {
+      display: inline-block;
+      margin-left: 8px;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #f3d0ae;
+      opacity: 0.95;
+    }
+
+    .note {
+      margin-top: 22px;
+      font-size: 0.85rem;
+      opacity: 0.8;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 700px) {
+      .dish-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .dish-price {
+        margin-top: 4px;
+        padding-left: 0;
+      }
+
+      .subtitle {
+        font-size: 0.92rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">Rosa &amp; Figlio</div>
+      <div class="title">Dinner Menu</div>
+      <div class="subtitle">
+        Explore the dishes below. Each featured item links to its own Chef’s Canvas dish page for story, video, and richer discovery.
+      </div>
+
+      <a href="#" class="back-link">← Back to Rosa &amp; Figlio Home</a>
+    </header>
+
+    <section class="menu-section">
+      <div class="section-title">Piatti Principali</div>
+
+      <div class="dish-row">
+        <div class="dish-main">
+          <div class="dish-name">
+            <a href="/rosa-figlio/dish/chianti-braised-short-rib" class="menu-link">
+              Chianti-Braised Short Rib
+            </a>
+            <span class="featured-label">Featured Dish</span>
+          </div>
+          <div class="dish-desc">
+            Slow-braised beef, porcini mushroom risotto, rosemary gremolata.
+          </div>
+        </div>
+        <div class="dish-price">$38</div>
+      </div>
+
+      <div class="dish-row">
+        <div class="dish-main">
+          <div class="dish-name">
+            <a href="/rosa-figlio/dish/truffle-tagliatelle" class="menu-link">
+              Truffle Tagliatelle
+            </a>
+          </div>
+          <div class="dish-desc">
+            House-made tagliatelle, shaved black truffle, Parmigiano-Reggiano, cultured butter.
+          </div>
+        </div>
+        <div class="dish-price">$32</div>
+      </div>
+
+      <div class="dish-row">
+        <div class="dish-main">
+          <div class="dish-name">
+            <a href="/rosa-figlio/dish/tuscan-herb-roasted-chicken" class="menu-link">
+              Tuscan Herb-Roasted Chicken
+            </a>
+          </div>
+          <div class="dish-desc">
+            Crispy half chicken, roasted garlic jus, lemon, rosemary potatoes.
+          </div>
+        </div>
+        <div class="dish-price">$29</div>
+      </div>
+    </section>
+
+    <section class="menu-section">
+      <div class="section-title">Antipasti</div>
+
+      <div class="dish-row">
+        <div class="dish-main">
+          <div class="dish-name">Wood-Fired Burrata</div>
+          <div class="dish-desc">
+            Creamy burrata, charred grapes, toasted hazelnuts, balsamic syrup.
+          </div>
+        </div>
+        <div class="dish-price">$17</div>
+      </div>
+
+      <div class="dish-row">
+        <div class="dish-main">
+          <div class="dish-name">Nonna’s Meatballs</div>
+          <div class="dish-desc">
+            Slow-simmered in San Marzano tomato sauce, pecorino, basil.
+          </div>
+        </div>
+        <div class="dish-price">$15</div>
+      </div>
+    </section>
+
+    <p class="note">
+      Prototype note: in a full Chef’s Canvas implementation, this menu page would be generated dynamically from the CMS and each linked dish would connect to story, video, and structured data.
+    </p>
+  </div>
+</body>
+</html>

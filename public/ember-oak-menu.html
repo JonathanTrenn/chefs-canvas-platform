@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ember &amp; Oak – Wood-Fired Menu</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: "Georgia", serif;
+            background: #0b0606;
+            color: #f7ede4;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 24px 18px 40px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .brand {
+            font-size: 1.6rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #fdf4ea;
+        }
+
+        .title {
+            font-size: 1.1rem;
+            margin-top: 6px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.3);
+            background: #f8eee5;
+            color: #28130d;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .back-link:hover {
+            filter: brightness(0.96);
+        }
+
+        .menu-section {
+            margin-bottom: 26px;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: #f1c18a;
+        }
+
+        .dish-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .dish-name {
+            font-weight: 600;
+        }
+
+        .dish-desc {
+            font-size: 0.9rem;
+            opacity: 0.86;
+            margin-top: 4px;
+        }
+
+        .dish-price {
+            white-space: nowrap;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .menu-link {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(255,255,255,0.5);
+        }
+
+        .menu-link:hover {
+            border-bottom-style: solid;
+        }
+
+        .note {
+            margin-top: 18px;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 700px) {
+            .dish-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .dish-price {
+                margin-top: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <header>
+        <div class="brand">Ember &amp; Oak</div>
+        <div class="title">Wood-Fired Dinner Menu</div>
+        <a href="ember-home.html" class="back-link">
+  ← Back to Ember & Oak Home
+</a>
+
+    </header>
+
+    <section class="menu-section">
+        <div class="section-title">From the Grill</div>
+
+        <div class="dish-row">
+            <div>
+                <div class="dish-name">
+                    <!-- Link to the feature dish page -->
+                    <a href="http://localhost:3000/ember-and-oak/dish/fire-grilled-ribeye" class="menu-link">
+    Coal-Fired Ribeye with Smoked Garlic Butter
+</a>
+                </div>
+                <div class="dish-desc">
+                    18oz bone-in ribeye, ember-charred crust, smoked garlic butter, coal-roasted onions.
+                </div>
+            </div>
+            <div class="dish-price">$54</div>
+        </div>
+
+        <div class="dish-row">
+            <div>
+                <div class="dish-name">
+                    <!-- Example of future dish detail page -->
+                    <a href="ember-hanger-steak.html" class="menu-link">
+                        Ember-Seared Hanger Steak
+                    </a>
+                </div>
+                <div class="dish-desc">
+                    Marinated hanger steak, charred scallions, smoked chili jus, crispy potatoes.
+                </div>
+            </div>
+            <div class="dish-price">$39</div>
+        </div>
+
+        <div class="dish-row">
+            <div>
+                <div class="dish-name">
+                    <a href="ember-porterhouse.html" class="menu-link">
+                        Shared Porterhouse for Two
+                    </a>
+                </div>
+                <div class="dish-desc">
+                    34oz porterhouse, fire-roasted bone marrow, herb salad, ember-finished jus.
+                </div>
+            </div>
+            <div class="dish-price">$120</div>
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <div class="section-title">Ember Starters</div>
+
+        <div class="dish-row">
+            <div>
+                <div class="dish-name">
+                    <a href="ember-charred-carrots.html" class="menu-link">
+                        Charred Carrots &amp; Ashen Yogurt
+                    </a>
+                </div>
+                <div class="dish-desc">
+                    Coal-roasted carrots, smoked yogurt, toasted seeds, herb oil.
+                </div>
+            </div>
+            <div class="dish-price">$16</div>
+        </div>
+
+        <div class="dish-row">
+            <div>
+                <div class="dish-name">
+                    <a href="ember-smoked-burrata.html" class="menu-link">
+                        Smoked Burrata &amp; Fire-Warmed Bread
+                    </a>
+                </div>
+                <div class="dish-desc">
+                    Cold-smoked burrata, ember-warmed sourdough, charred grapes, chili honey.
+                </div>
+            </div>
+            <div class="dish-price">$19</div>
+        </div>
+    </section>
+
+    <p class="note">
+        For this prototype, only the Coal-Fired Ribeye links to a working dish experience.
+        Additional links can be wired to new dish pages using your neutral dish template
+        as you expand the Ember &amp; Oak section of Chef’s Canvas.
+    </p>
+
+</div>
+</body>
+</html>

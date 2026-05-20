@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chef’s Canvas – Restaurant Directory</title>
+<link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: "Georgia", "Times New Roman", serif;
+            background: #1a1412;
+            color: #f7ecde;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 28px 20px 40px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 26px;
+        }
+
+        .title {
+            font-size: 1.6rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .restaurant-grid {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 22px;
+        }
+
+        .restaurant-card {
+            background: #f2e4cf;
+            color: #3b231d;
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid rgba(0,0,0,0.18);
+            text-align: center;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+        }
+
+        .restaurant-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 0.06em;
+        }
+
+        .restaurant-desc {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .restaurant-link {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            background: #7A1F1F;
+            color: #fff7eb;
+            border: 1px solid #5b1313;
+        }
+
+        .restaurant-link:hover {
+            filter: brightness(0.94);
+        }
+    </style>
+</head>
+
+<body>
+<div class="page">
+
+    <header>
+        <div class="title">Chef’s Canvas Directory</div>
+        <div class="subtitle">
+            Explore partner restaurants and their signature stories.
+        </div>
+    </header>
+
+    <section class="restaurant-grid">
+
+<!-- ROSA & FIGLIO -->
+<div class="restaurant-card featured">
+    <div class="restaurant-name">Rosa &amp; Figlio</div>
+    <div class="restaurant-desc">
+        A Tuscan heritage dining room celebrating three generations of slow braises and handmade pasta.
+    </div>
+    <a class="restaurant-link" href="rosa-figlio-menu.html" target="_blank" rel="noopener noreferrer">
+        Visit Restaurant →
+    </a>
+</div>
+
+<!-- ALTA MARINA -->
+<div class="restaurant-card">
+    <div class="restaurant-name">Alta Marina</div>
+    <div class="restaurant-desc">
+        Elegant coastal Mediterranean dining inspired by shoreline cooking and sunlit seafood traditions.
+    </div>
+    <a class="restaurant-link" href="alta-marina-menu.html" target="_blank" rel="noopener noreferrer">
+        Visit Restaurant →
+    </a>
+</div>
+
+<!-- EMBER & OAK -->
+<div class="restaurant-card">
+    <div class="restaurant-name">Ember &amp; Oak</div>
+    <div class="restaurant-desc">
+        Smoke, fire, and refined rustic flavors from a wood-fired American kitchen with dramatic plating.
+    </div>
+    <a class="restaurant-link" href="ember-oak-menu.html" target="_blank" rel="noopener noreferrer">
+        Visit Restaurant →
+    </a>
+</div>
+
+<!-- NEGASH'S ETHIOPIAN CAFE -->
+<div class="restaurant-card">
+    <div class="restaurant-name">Negash’s Ethiopian Café</div>
+    <div class="restaurant-desc">
+        A vibrant Ethiopian kitchen celebrating injera, spice, and the richness of shared-table dining.
+    </div>
+    <a class="restaurant-link" href="negash-ethiopian-menu.html" target="_blank" rel="noopener noreferrer">
+        Visit Restaurant →
+    </a>
+</div>
+
+    </section>
+
+</div>
+</body>
+</html>

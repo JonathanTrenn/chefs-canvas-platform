@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Negash’s Ethiopian Café – Menu</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: "Georgia", "Times New Roman", serif;
+            background: radial-gradient(circle at top, #2b3a32, #120a06 60%);
+            color: #fdf7eb;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 24px 18px 40px;
+            background: #f5ecde;
+            color: #3a261b;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+            border-radius: 10px;
+            border: 1px solid rgba(0,0,0,0.15);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .brand {
+            font-size: 1.6rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #3a4f3c;
+        }
+
+        .title {
+            font-size: 1.1rem;
+            margin-top: 6px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            opacity: 0.9;
+            color: #8b2c20;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(0,0,0,0.25);
+            background: #e9dcc9;
+            color: #3a261b;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .back-link:hover {
+            filter: brightness(0.96);
+        }
+
+        .menu-section {
+            margin-bottom: 26px;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: #3a4f3c;
+        }
+
+        .dish-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .dish-name {
+            font-weight: 600;
+            color: #3a261b;
+        }
+
+        .dish-desc {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 4px;
+            color: #4e3324;
+        }
+
+        .dish-price {
+            white-space: nowrap;
+            font-size: 0.9rem;
+            opacity: 0.95;
+            color: #3a261b;
+        }
+
+        .menu-link {
+            color: #8b2c20;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(139,44,32,0.4);
+        }
+
+        .menu-link:hover {
+            color: #5e1f16;
+            border-bottom-color: rgba(94,31,22,0.8);
+        }
+
+        .note {
+            margin-top: 18px;
+            font-size: 0.85rem;
+            opacity: 0.8;
+            color: #4e3324;
+        }
+
+        @media (max-width: 700px) {
+            .dish-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .dish-price {
+                margin-top: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <header>
+        <div class="brand">Negash’s Ethiopian Café</div>
+        <div class="title">House Menu</div>
+        <a href="negash-home.html" class="back-link">
+  ← Back to Negash Home
+</a>
+    </header>
+
+    <!-- HOUSE STEWS & TIBS -->
+    <section class="menu-section">
+        <div class="section-title">House Stews &amp; Tibs</div>
+
+        <div class="dish-row">
+            <div>
+                <div class="dish-name">
+                    <a href="http://localhost:3000/negashs-ethiopian-cafe/dish/doro-wat-with-injera" class="menu-link">
+    Doro Wat with Injera
+</a>
+                </div>
+                <div class="dish-desc">
+                    Signature chicken stew slowly simmered with berbere and spiced clarified butter,
+                    served with soft injera for tearing, dipping, and sharing.
+                </div>
+            </div>
+            <div class="dish-price">$22</div>
+        </div>
+
+        <div class="dish-row">
+            <div>
+                <div class="dish-name">Sega Tibs</div>
+                <div class="dish-desc">
+                    Sautéed beef with onions, peppers, and chilies, finished in a hot pan for a smoky,
+                    sizzling presentation. Served with injera.
+                </div>
+            </div>
+            <div class="dish-price">$21</div>
+        </div>
+
+        <div class="dish-row">
+            <div>
+                <div class="dish-name">Key Wat</div>
+                <div class="dish-desc">
+                    Beef stew gently cooked in a berbere-rich sauce with deeply caramelized onions
+                    and warm spices.
+                </div>
+            </div>
+            <div class="dish-price">$20</div>
+        </div>
+    </section>
+
+    <!-- VEGETARIAN & VEGAN FAVOURITES -->
+    <section class="menu-section">
+        <div class="section-title">Vegetarian &amp; Vegan Favourites</div>
+
+        <div class="dish-row">
+            <div>
+                <div class="dish-name">Misir Wat</div>
+                <div class="dish-desc">
+                    Red lentils simmered with berbere, onions, and garlic until velvety and rich in flavor.
+                </div>
+            </div>
+            <div class="dish-price">$17</div>
+        </div>
+
+        <div class="dish-row">
+            <div>
+                <div class="dish-name">Atkilt Alicha</div>
+                <div class="dish-desc">
+                    Gently stewed cabbage, carrots, and potatoes in a mild turmeric-infused sauce.
+                </div>
+            </div>
+            <div class="dish-price">$16</div>
+        </div>
+
+        <div class="dish-row">
+            <div>
+                <div class="dish-name">Shiro</div>
+                <div class="dish-desc">
+                    Ground chickpea stew, silky and comforting, seasoned with garlic and traditional spices.
+                </div>
+            </div>
+            <div class="dish-price">$16</div>
+        </div>
+    </section>
+
+    <!-- SHARED PLATTERS -->
+    <section class="menu-section">
+        <div class="section-title">Shared Platters</div>
+
+        <div class="dish-row">
+            <div>
+                <div class="dish-name">Negash’s Family Platter</div>
+                <div class="dish-desc">
+                    A shared injera platter featuring Doro Wat, Sega Tibs, Misir Wat, Atkilt Alicha,
+                    and Shiro—designed for 3–4 guests.
+                </div>
+            </div>
+            <div class="dish-price">$68</div>
+        </div>
+
+        <div class="dish-row">
+            <div>
+                <div class="dish-name">Vegetarian Feast</div>
+                <div class="dish-desc">
+                    A fully vegetarian spread with three wats, seasonal greens, and house salad,
+                    arranged for communal dining.
+                </div>
+            </div>
+            <div class="dish-price">$58</div>
+        </div>
+    </section>
+
+    <!-- COFFEE & CEREMONY -->
+    <section class="menu-section">
+        <div class="section-title">Coffee &amp; Ceremony</div>
+
+        <div class="dish-row">
+            <div>
+                <div class="dish-name">Traditional Ethiopian Coffee Ceremony</div>
+                <div class="dish-desc">
+                    Freshly roasted beans, hand-brewed coffee, and small bites, presented in a
+                    three-pour ceremony that invites guests to linger and connect.
+                </div>
+            </div>
+            <div class="dish-price">$28 (for two)</div>
+        </div>
+
+        <div class="dish-row">
+            <div>
+                <div class="dish-name">Single Cup Ethiopian Coffee</div>
+                <div class="dish-desc">
+                    A rich, aromatic cup brewed to order from house-roasted beans.
+                </div>
+            </div>
+            <div class="dish-price">$6</div>
+        </div>
+
+        <div class="dish-row">
+            <div>
+                <div class="dish-name">Honey Wine (Tej)</div>
+                <div class="dish-desc">
+                    Semi-sweet traditional honey wine, offered in limited quantities.
+                </div>
+            </div>
+            <div class="dish-price">$10</div>
+        </div>
+    </section>
+
+    <p class="note">
+        In a full Chef’s Canvas implementation, each linked dish would open its own feature page
+        with video, story, structured data, and instant calls-to-action. This menu is a prototype
+        demonstration of how Negash’s Ethiopian Café could be presented to guests and AI search alike.
+    </p>
+
+</div>
+</body>
+</html>
