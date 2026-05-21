@@ -170,7 +170,7 @@ const nextHref = nextDishSlug
         <aside className="cta-panel">
           <div className="cta-title">{ctaTitle ?? "Make It a Tuscan Night"}</div>
 
-          <div className="cta-subtitle">
+          <div className="cta-subtitle" style={{ textAlign: "center" }}>
             {ctaSubtitle ??
               "This section will become CMS-controlled in a later Phase 3 step."}
           </div>
