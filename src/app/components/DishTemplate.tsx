@@ -161,8 +161,10 @@ const nextHref = nextDishSlug
     </button>
   )}
 
-<SaveButton />
-            <ShareButton />
+<div className="nav-save-share">
+              <SaveButton />
+              <ShareButton />
+            </div>
           </div>
         </div>
 

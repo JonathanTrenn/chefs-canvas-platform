@@ -536,6 +536,12 @@ iframe, video, img {
         font-size: 0.75rem;
         padding: 5px 8px;
     }
+    .nav-save-share {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+    }
 }
 
 .return-directory {
