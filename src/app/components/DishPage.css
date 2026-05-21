@@ -278,7 +278,7 @@
 }
 
 /* ── MOBILE ─────────────────────────────────────────────── */
-@media (max-width: 700px) {
+@media (max-width: 900px) {
     .top-header, .hero-grid, .story-quote-grid { grid-template-columns: 1fr; }
     .logo-placeholder, .qr-box-header { display: none; }
     .gallery-row { flex-direction: column; }
