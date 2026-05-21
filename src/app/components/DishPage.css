@@ -83,14 +83,6 @@
     letter-spacing: 0.10em;
 }
 
-.logo-placeholder .mark {
-    display: block;
-    font-size: 0.7rem;
-    letter-spacing: 0.18em;
-    opacity: 0.9;
-    margin-top: 4px;
-}
-
 .dish-heading {
     text-align: center;
     max-width: 800px;
@@ -140,22 +132,9 @@
 /* UNIFIED NAV BAR */
 .video-nav-unified {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
     gap: 8px;
     margin-top: 8px;
-}
-
-.nav-row-main {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-}
-
-.nav-row-secondary {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
 }
 
 .nav-button {
@@ -169,7 +148,6 @@
     gap: 4px;
     cursor: pointer;
     font-size: 0.85rem;
-    white-space: nowrap;
 }
 .nav-button:hover { background: #ecd6bc; }
 
@@ -183,26 +161,6 @@
     display: flex;
     flex-direction: column;
     box-shadow: 0 14px 32px rgba(0,0,0,0.6);
-}
-
-.cta-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-.cta-subtitle {
-    font-size: 0.9rem;
-    text-align: center;
-    margin-bottom: 12px;
-    opacity: 0.9;
-}
-
-.cta-note {
-    font-size: 0.78rem;
-    text-align: center;
-    opacity: 0.7;
-    margin-top: auto;
 }
 
 .cta-button {
@@ -277,28 +235,12 @@
     overflow: hidden;
 }
 
-/* ── MOBILE ─────────────────────────────────────────────── */
-@media (max-width: 900px) {
+/* Responsive Overrides */
+@media (max-width: 700px) {
     .top-header, .hero-grid, .story-quote-grid { grid-template-columns: 1fr; }
     .logo-placeholder, .qr-box-header { display: none; }
     .gallery-row { flex-direction: column; }
     .hero-video, .cta-panel { height: auto; min-height: 300px; }
-    .gallery-item { height: 250px; min-height: 250px; }
-
-    .nav-row-main {
-        width: 100%;
-        justify-content: space-between;
-    }
-
-    .nav-row-secondary {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .nav-button {
-        padding: 5px 8px;
-        font-size: 0.75rem;
-    }
 }
 
 /* ── Restaurant Theme Overrides ─────────────────────────── */
@@ -442,6 +384,14 @@
 }
 
 [data-restaurant="seasons-52"] .logo-placeholder .mark {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    opacity: 0.9;
+    margin-top: 4px;
+}
+
+.logo-placeholder .mark {
     display: block;
     font-size: 0.7rem;
     letter-spacing: 0.18em;

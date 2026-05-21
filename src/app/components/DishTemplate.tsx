@@ -130,43 +130,40 @@ const nextHref = nextDishSlug
             </div>
           </div>
 
-<div className="video-nav-unified">
-            <div className="nav-row-main">
-              {previousHref ? (
-                <form action={previousHref} style={{ display: "contents" }}>
-                  <button type="submit" className="nav-button">
-                    <span className="icon">←</span> Previous
-                  </button>
-                </form>
-              ) : (
-                <button type="button" className="nav-button" disabled>
-                  <span className="icon">←</span> Previous
-                </button>
-              )}
+          <div className="video-nav-unified">
+           <SaveButton />
 
-              <form action={`/${restaurantSlug}/menu`} style={{ display: "contents" }}>
-                <button type="submit" className="nav-button">
-                  Back to Menu
-                </button>
-              </form>
+            {previousHref ? (
+  <form action={previousHref} style={{ display: "contents" }}>
+    <button type="submit" className="nav-button">
+      <span className="icon">←</span> Previous
+    </button>
+  </form>
+) : (
+  <button type="button" className="nav-button" disabled>
+    <span className="icon">←</span> Previous
+  </button>
+)}
 
-              {nextHref ? (
-                <form action={nextHref} style={{ display: "contents" }}>
-                  <button type="submit" className="nav-button">
-                    Next <span className="icon">→</span>
-                  </button>
-                </form>
-              ) : (
-                <button type="button" className="nav-button" disabled>
-                  Next <span className="icon">→</span>
-                </button>
-              )}
-            </div>
+          <form action={`/${restaurantSlug}/menu`} style={{ display: "contents" }}>
+  <button type="submit" className="nav-button">
+    <span className="icon"></span>Back to Menu
+  </button>
+</form>
 
-            <div className="nav-row-secondary">
-              <ShareButton />
-              <SaveButton />
-            </div>
+{nextHref ? (
+  <form action={nextHref} style={{ display: "contents" }}>
+    <button type="submit" className="nav-button">
+      Next <span className="icon">→</span>
+    </button>
+  </form>
+) : (
+  <button type="button" className="nav-button" disabled>
+    Next <span className="icon">→</span>
+  </button>
+)}
+
+           <ShareButton />
           </div>
         </div>
 
