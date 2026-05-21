@@ -83,6 +83,14 @@
     letter-spacing: 0.10em;
 }
 
+.logo-placeholder .mark {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    opacity: 0.9;
+    margin-top: 4px;
+}
+
 .dish-heading {
     text-align: center;
     max-width: 800px;
@@ -132,14 +140,26 @@
 /* UNIFIED NAV BAR */
 .video-nav-unified {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     gap: 8px;
     margin-top: 8px;
 }
 
+.nav-row-main {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.nav-row-secondary {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
 .nav-button {
-    padding: 5px 8px;
+    padding: 6px 12px;
     border-radius: 999px;
     border: 1px solid rgba(0,0,0,0.18);
     background: #f3e3ce;
@@ -148,7 +168,7 @@
     align-items: center;
     gap: 4px;
     cursor: pointer;
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     white-space: nowrap;
 }
 .nav-button:hover { background: #ecd6bc; }
@@ -163,6 +183,26 @@
     display: flex;
     flex-direction: column;
     box-shadow: 0 14px 32px rgba(0,0,0,0.6);
+}
+
+.cta-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.cta-subtitle {
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 12px;
+    opacity: 0.9;
+}
+
+.cta-note {
+    font-size: 0.78rem;
+    text-align: center;
+    opacity: 0.7;
+    margin-top: auto;
 }
 
 .cta-button {
@@ -237,25 +277,13 @@
     overflow: hidden;
 }
 
+/* ── MOBILE ─────────────────────────────────────────────── */
 @media (max-width: 700px) {
     .top-header, .hero-grid, .story-quote-grid { grid-template-columns: 1fr; }
     .logo-placeholder, .qr-box-header { display: none; }
     .gallery-row { flex-direction: column; }
     .hero-video, .cta-panel { height: auto; min-height: 300px; }
-
-    .video-nav-unified {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto auto;
-        justify-items: center;
-        gap: 8px;
-    }
-
-    .video-nav-unified > *:nth-child(1) { grid-column: 1; grid-row: 1; }
-    .video-nav-unified > *:nth-child(2) { grid-column: 2; grid-row: 1; }
-    .video-nav-unified > *:nth-child(3) { grid-column: 1 / span 2; grid-row: 2; }
-    .video-nav-unified > *:nth-child(4) { grid-column: 1 / span 2; grid-row: 3; }
-    .video-nav-unified > *:nth-child(5) { grid-column: 1 / span 2; grid-row: 3; }
+    .gallery-item { height: 250px; min-height: 250px; }
 }
 
 /* ── Restaurant Theme Overrides ─────────────────────────── */
@@ -404,33 +432,4 @@
     letter-spacing: 0.18em;
     opacity: 0.9;
     margin-top: 4px;
-}
-
-.logo-placeholder .mark {
-    display: block;
-    font-size: 0.7rem;
-    letter-spacing: 0.18em;
-    opacity: 0.9;
-    margin-top: 4px;
-}@media (max-width: 700px) {
-    .video-nav-unified {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .nav-button-prev,
-    .nav-button-next {
-        flex: 0 0 auto;
-    }
-
-    .nav-button-menu {
-        flex: 0 0 100%;
-        justify-content: center;
-    }
-
-    .nav-button-save,
-    .nav-button-share {
-        flex: 0 0 auto;
-    }
 }

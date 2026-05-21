@@ -130,40 +130,44 @@ const nextHref = nextDishSlug
             </div>
           </div>
 
-          <div className="video-nav-unified">
-           {previousHref ? (
-  <form action={previousHref} style={{ display: "contents" }}>
-    <button type="submit" className="nav-button">
-      <span className="icon">←</span> Previous
-    </button>
-  </form>
-) : (
-  <button type="button" className="nav-button" disabled>
-    <span className="icon">←</span> Previous
-  </button>
-)}
+<div className="video-nav-unified">
+            <div className="nav-row-main">
+              {previousHref ? (
+                <form action={previousHref} style={{ display: "contents" }}>
+                  <button type="submit" className="nav-button">
+                    <span className="icon">←</span> Previous
+                  </button>
+                </form>
+              ) : (
+                <button type="button" className="nav-button" disabled>
+                  <span className="icon">←</span> Previous
+                </button>
+              )}
 
-          <form action={`/${restaurantSlug}/menu`} style={{ display: "contents" }}>
-  <button type="submit" className="nav-button">
-    <span className="icon"></span>Back to Menu
-  </button>
-</form>
+              <form action={`/${restaurantSlug}/menu`} style={{ display: "contents" }}>
+                <button type="submit" className="nav-button">
+                  Back to Menu
+                </button>
+              </form>
 
-{nextHref ? (
-  <form action={nextHref} style={{ display: "contents" }}>
-    <button type="submit" className="nav-button">
-      Next <span className="icon">→</span>
-    </button>
-  </form>
-) : (
-  <button type="button" className="nav-button" disabled>
-    Next <span className="icon">→</span>
-  </button>
-)}
+              {nextHref ? (
+                <form action={nextHref} style={{ display: "contents" }}>
+                  <button type="submit" className="nav-button">
+                    Next <span className="icon">→</span>
+                  </button>
+                </form>
+              ) : (
+                <button type="button" className="nav-button" disabled>
+                  Next <span className="icon">→</span>
+                </button>
+              )}
+            </div>
 
-           <ShareButton />
-  <SaveButton />
-</div>
+            <div className="nav-row-secondary">
+              <ShareButton />
+              <SaveButton />
+            </div>
+          </div>
         </div>
 
         <aside className="cta-panel">
