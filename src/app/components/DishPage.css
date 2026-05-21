@@ -391,7 +391,9 @@
 [data-restaurant="seasons-52"] .quote-bubble {
     background: #2d4a1e;
 }
-
+[data-restaurant="seasons-52"] .quote-bubble::after {
+    border-top-color: #2d4a1e;
+}
 [data-restaurant="seasons-52"] .gallery-item {
     background: #d8e8c8;
 }
