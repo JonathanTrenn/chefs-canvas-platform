@@ -131,39 +131,38 @@ const nextHref = nextDishSlug
           </div>
 
           <div className="video-nav-unified">
-           <SaveButton />
-
-            {previousHref ? (
-  <form action={previousHref} style={{ display: "contents" }}>
-    <button type="submit" className="nav-button">
+  {previousHref ? (
+    <form action={previousHref} style={{ display: "contents" }}>
+      <button type="submit" className="nav-button">
+        <span className="icon">←</span> Previous
+      </button>
+    </form>
+  ) : (
+    <button type="button" className="nav-button" disabled>
       <span className="icon">←</span> Previous
     </button>
-  </form>
-) : (
-  <button type="button" className="nav-button" disabled>
-    <span className="icon">←</span> Previous
-  </button>
-)}
+  )}
 
-          <form action={`/${restaurantSlug}/menu`} style={{ display: "contents" }}>
-  <button type="submit" className="nav-button">
-    <span className="icon"></span>Back to Menu
-  </button>
-</form>
-
-{nextHref ? (
-  <form action={nextHref} style={{ display: "contents" }}>
+  <form action={`/${restaurantSlug}/menu`} style={{ display: "contents" }}>
     <button type="submit" className="nav-button">
-      Next <span className="icon">→</span>
+      Back to Menu
     </button>
   </form>
-) : (
-  <button type="button" className="nav-button" disabled>
-    Next <span className="icon">→</span>
-  </button>
-)}
 
-           <ShareButton />
+  {nextHref ? (
+    <form action={nextHref} style={{ display: "contents" }}>
+      <button type="submit" className="nav-button">
+        Next <span className="icon">→</span>
+      </button>
+    </form>
+  ) : (
+    <button type="button" className="nav-button" disabled>
+      Next <span className="icon">→</span>
+    </button>
+  )}
+
+<SaveButton />
+            <ShareButton />
           </div>
         </div>
 
