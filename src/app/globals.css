@@ -410,7 +410,7 @@ body {
 
 .gallery-item {
     flex: 1;
-    height: 130px;
+    height: 350px;
     background: #ecd8c3;
     border-radius: 10px;
     display: flex;
