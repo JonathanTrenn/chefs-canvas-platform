@@ -207,10 +207,11 @@
 .story-title {
     font-size: 1.25rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--berbere-red);
+    letter-spacing: 0.06em;
+    text-transform: none;
     margin-bottom: 8px;
+    color: #1a1a1a;
+    text-align: center;
 }
 
 .story-body {
@@ -387,7 +388,9 @@
 [data-restaurant="seasons-52"] .features-list li::marker {
     color: #729A4C;
 }
-
+[data-restaurant="seasons-52"] .features-list ul {
+    color: #3b241a;
+}
 [data-restaurant="seasons-52"] .quote-bubble {
     background: #2d4a1e;
 }
@@ -418,7 +421,4 @@
     letter-spacing: 0.18em;
     opacity: 0.9;
     margin-top: 4px;
-    [data-restaurant="seasons-52"] .quote-bubble::after {
-    border-top-color: #2d4a1e;
-}
 }
