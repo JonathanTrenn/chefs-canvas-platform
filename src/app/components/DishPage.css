@@ -284,6 +284,21 @@
     .gallery-row { flex-direction: column; }
     .hero-video, .cta-panel { height: auto; min-height: 300px; }
     .gallery-item { height: 250px; min-height: 250px; }
+
+    .nav-row-main {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .nav-row-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-button {
+        padding: 5px 8px;
+        font-size: 0.75rem;
+    }
 }
 
 /* ── Restaurant Theme Overrides ─────────────────────────── */
