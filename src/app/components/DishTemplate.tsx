@@ -131,9 +131,7 @@ const nextHref = nextDishSlug
           </div>
 
           <div className="video-nav-unified">
-           <SaveButton />
-
-            {previousHref ? (
+           {previousHref ? (
   <form action={previousHref} style={{ display: "contents" }}>
     <button type="submit" className="nav-button">
       <span className="icon">←</span> Previous
@@ -164,7 +162,8 @@ const nextHref = nextDishSlug
 )}
 
            <ShareButton />
-          </div>
+  <SaveButton />
+</div>
         </div>
 
         <aside className="cta-panel">
