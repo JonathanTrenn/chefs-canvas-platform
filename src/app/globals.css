@@ -151,7 +151,6 @@ body {
 
 .hero-video {
     width: 100%;
-    min-height: 480px;
     background: radial-gradient(circle at top, #7A1F1F 0, #3b1a14 55%, #120705 100%);
     border-radius: 14px;
     position: relative;
