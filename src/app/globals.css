@@ -159,9 +159,6 @@ body {
     box-shadow: 0 14px 32px rgba(0,0,0,0.6);
 }
 
-.hero-video:has(wistia-player) {
-    height: auto;
-}
 
 .hero-video-inner
 
