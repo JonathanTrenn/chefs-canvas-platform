@@ -429,6 +429,9 @@ body {
     row-gap: 8px;
     justify-items: center;
     text-align: center;
+    .features-list ul {
+        line-height: 2;
+    }
     }
 
     .logo-placeholder,
