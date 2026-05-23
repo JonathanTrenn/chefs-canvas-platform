@@ -159,13 +159,7 @@ body {
     box-shadow: 0 14px 32px rgba(0,0,0,0.6);
 }
 
-.hero-video-inner {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+.hero-video-inner
 
 .hero-video::before {
     content: "";
