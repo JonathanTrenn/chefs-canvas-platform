@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 type Props = {
   wistiaVideoId?: string | null;
@@ -8,8 +8,16 @@ type Props = {
 };
 
 export default function WistiaEmbed({ wistiaVideoId, className }: Props) {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     if (!wistiaVideoId) return;
+
+    // Remove fixed height from hero-video when video is present
+    const heroVideo = wrapperRef.current?.closest(".hero-video");
+    if (heroVideo) {
+      (heroVideo as HTMLElement).style.height = "auto";
+    }
 
     const ensureScript = (src: string, type?: string) => {
       if (document.querySelector(`script[src="${src}"]`)) return;
@@ -27,7 +35,7 @@ export default function WistiaEmbed({ wistiaVideoId, className }: Props) {
   if (!wistiaVideoId) return null;
 
   return (
-    <div className={className} style={{ width: "100%", aspectRatio: "16/9" }}>
+    <div ref={wrapperRef} className={className} style={{ width: "100%", aspectRatio: "16/9" }}>
       <div
         dangerouslySetInnerHTML={{
           __html: `<wistia-player media-id="${wistiaVideoId}" aspect="1.7777777777777777" style="width:100%;height:100%;display:block;"></wistia-player>`
