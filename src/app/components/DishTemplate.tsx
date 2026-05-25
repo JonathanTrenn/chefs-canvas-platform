@@ -119,10 +119,10 @@ const nextHref = nextDishSlug
                   className="h-full w-full"
                 />
               ) : heroImageUrl ? (
-                <img
+               <img
                   src={heroImageUrl}
                   alt=""
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center" }}
                 />
               ) : (
                 <div className="play-button"></div>
