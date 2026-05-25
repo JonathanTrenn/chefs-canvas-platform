@@ -2,6 +2,7 @@ import { PortableText } from "@portabletext/react";
 import WistiaEmbed from "./WistiaEmbed";
 import ShareButton from "./ShareButton";
 import SaveButton from "./SaveButton";
+
 type GalleryItem = {
   url?: string;
   alt?: string;
@@ -14,7 +15,6 @@ type DishCta = {
   isPrimary?: boolean;
 };
 
-
 const restaurantMeta: Record<string, { name: string; tagline: string }> = {
   "rosa-figlio": { name: "Rosa & Figlio", tagline: "TUSCAN • CHIANTI • RISOTTO" },
   "ember-and-oak": { name: "Ember & Oak", tagline: "FIRE • BONE • BUTTER" },
@@ -22,6 +22,7 @@ const restaurantMeta: Record<string, { name: string; tagline: string }> = {
   "negashs-ethiopian-cafe": { name: "Negash's Ethiopian Cafe", tagline: "COFFEE • INJERA • WAT" },
   "seasons-52": { name: "Seasons 52", tagline: "FRESH • SEASONAL • WOOD-FIRED • WINE BAR" },
 };
+
 export default function DishTemplate({
   title,
   subtitle,
@@ -32,12 +33,10 @@ export default function DishTemplate({
   gallery,
   wistiaVideoId,
   heroImageUrl,
-
   ctaTitle,
   ctaSubtitle,
   ctaNote,
   ctas,
-
   restaurantSlug,
   prevDishSlug,
   nextDishSlug,
@@ -51,12 +50,10 @@ export default function DishTemplate({
   gallery?: GalleryItem[];
   wistiaVideoId?: string;
   heroImageUrl?: string;
-
   ctaTitle?: string;
   ctaSubtitle?: string;
   ctaNote?: string;
   ctas?: DishCta[];
-
   restaurantSlug: string;
   prevDishSlug?: string;
   nextDishSlug?: string;
@@ -65,18 +62,21 @@ export default function DishTemplate({
   const g1 = gallery?.[1];
   const g2 = gallery?.[2];
 
-const previousHref = prevDishSlug
-  ? `/${restaurantSlug}/dish/${prevDishSlug}`
-  : undefined;
+  const previousHref = prevDishSlug
+    ? `/${restaurantSlug}/dish/${prevDishSlug}`
+    : undefined;
 
-const nextHref = nextDishSlug
-  ? `/${restaurantSlug}/dish/${nextDishSlug}`
-  : undefined;
+  const nextHref = nextDishSlug
+    ? `/${restaurantSlug}/dish/${nextDishSlug}`
+    : undefined;
+
   const displayQuoteText =
     quoteText ??
-    "One of the most memorable dishes I’ve had in years — rich, comforting, and beautifully presented.";
+    "One of the most memorable dishes I've had in years — rich, comforting, and beautifully presented.";
 
-  const displayQuoteSource = quoteSource ?? "Prototype Guest Review";const meta = restaurantMeta[restaurantSlug] ?? {
+  const displayQuoteSource = quoteSource ?? "Prototype Guest Review";
+
+  const meta = restaurantMeta[restaurantSlug] ?? {
     name: restaurantSlug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
     tagline: "",
   };
@@ -119,10 +119,10 @@ const nextHref = nextDishSlug
                   className="h-full w-full"
                 />
               ) : heroImageUrl ? (
-               <img
+                <img
                   src={heroImageUrl}
                   alt=""
-                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center" }}
+                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 15%" }}
                 />
               ) : (
                 <div className="play-button"></div>
@@ -131,37 +131,37 @@ const nextHref = nextDishSlug
           </div>
 
           <div className="video-nav-unified">
-  {previousHref ? (
-    <form action={previousHref} style={{ display: "contents" }}>
-      <button type="submit" className="nav-button">
-        <span className="icon">←</span> Previous
-      </button>
-    </form>
-  ) : (
-    <button type="button" className="nav-button" disabled>
-      <span className="icon">←</span> Previous
-    </button>
-  )}
+            {previousHref ? (
+              <form action={previousHref} style={{ display: "contents" }}>
+                <button type="submit" className="nav-button">
+                  <span className="icon">←</span> Previous
+                </button>
+              </form>
+            ) : (
+              <button type="button" className="nav-button" disabled>
+                <span className="icon">←</span> Previous
+              </button>
+            )}
 
-  <form action={`/${restaurantSlug}/menu`} style={{ display: "contents" }}>
-    <button type="submit" className="nav-button">
-      Back to Menu
-    </button>
-  </form>
+            <form action={`/${restaurantSlug}/menu`} style={{ display: "contents" }}>
+              <button type="submit" className="nav-button">
+                Back to Menu
+              </button>
+            </form>
 
-  {nextHref ? (
-    <form action={nextHref} style={{ display: "contents" }}>
-      <button type="submit" className="nav-button">
-        Next <span className="icon">→</span>
-      </button>
-    </form>
-  ) : (
-    <button type="button" className="nav-button" disabled>
-      Next <span className="icon">→</span>
-    </button>
-  )}
+            {nextHref ? (
+              <form action={nextHref} style={{ display: "contents" }}>
+                <button type="submit" className="nav-button">
+                  Next <span className="icon">→</span>
+                </button>
+              </form>
+            ) : (
+              <button type="button" className="nav-button" disabled>
+                Next <span className="icon">→</span>
+              </button>
+            )}
 
-<div className="nav-save-share">
+            <div className="nav-save-share">
               <SaveButton />
               <ShareButton />
             </div>
@@ -181,7 +181,7 @@ const nextHref = nextDishSlug
               ? ctas
                   .filter((c) => c?.enabled !== false)
                   .map((c, i) => (
-                    <a
+                    
                       key={`cta-${i}`}
                       href={c?.url ?? "#"}
                       className={`cta-button${c?.isPrimary ? " primary" : ""}`}
@@ -231,20 +231,16 @@ const nextHref = nextDishSlug
           <div className="features-list">
             {features?.length ? (
               <>
-               {features?.length ? (
-  <>
-    <ul>
-      {features.slice(0, Math.ceil(features.length / 2)).map((item, i) => (
-        <li key={`f1-${i}`}>{item}</li>
-      ))}
-    </ul>
-    <ul>
-      {features.slice(Math.ceil(features.length / 2)).map((item, i) => (
-        <li key={`f2-${i}`}>{item}</li>
-      ))}
-    </ul>
-  </>
-) : null}
+                <ul>
+                  {features.slice(0, Math.ceil(features.length / 2)).map((item, i) => (
+                    <li key={`f1-${i}`}>{item}</li>
+                  ))}
+                </ul>
+                <ul>
+                  {features.slice(Math.ceil(features.length / 2)).map((item, i) => (
+                    <li key={`f2-${i}`}>{item}</li>
+                  ))}
+                </ul>
               </>
             ) : null}
           </div>
@@ -252,7 +248,7 @@ const nextHref = nextDishSlug
 
         <div className="quote-column">
           <div className="quote-bubble">
-            “{displayQuoteText}”
+            "{displayQuoteText}"
             <div className="quote-source">{displayQuoteSource}</div>
           </div>
         </div>
@@ -284,7 +280,7 @@ const nextHref = nextDishSlug
             <img
               src={g2.url}
               alt={g2.alt ?? ""}
-              style={{ width: "100%", height: "100%", objectPosition: "center 15%" }}
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
           ) : null}
         </div>
