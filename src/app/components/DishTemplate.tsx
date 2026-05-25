@@ -284,7 +284,7 @@ const nextHref = nextDishSlug
             <img
               src={g2.url}
               alt={g2.alt ?? ""}
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              style={{ width: "100%", height: "100%", objectPosition: "center 15%" }}
             />
           ) : null}
         </div>
