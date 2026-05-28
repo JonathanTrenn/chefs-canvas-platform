@@ -126,7 +126,7 @@
     background: radial-gradient(circle at top, #8b2c20 0, #3b1a14 55%, #120705 100%);
     border-radius: 14px;
     position: relative;
-    box-shadow: 0 14px 32px rgba(0,0,0,0.6);
+    box-shadow: 0 14px 32px rgba(0,0,0,0.6);}
 
 /* UNIFIED NAV BAR */
 .video-nav-unified {
@@ -422,4 +422,59 @@
     letter-spacing: 0.18em;
     opacity: 0.9;
     margin-top: 4px;
+}/* Austin Grill — Tex-Mex Warm */
+[data-restaurant="austin-grill"] {
+    --berbere-red: #D4A017;
+    --injera-cream: #FDF4E7;
+    --coffee-brown: #2A1A0E;
+    --deep-green: #8B3A0F;
+    --sun-gold: #D4A017;
+    --border-soft: rgba(0,0,0,0.12);
+}
+
+[data-restaurant="austin-grill"] .hero-video {
+    background: radial-gradient(circle at top, #D4A017 0, #8B3A0F 55%, #2A1A0E 100%);
+}
+
+[data-restaurant="austin-grill"] .cta-panel {
+    background: linear-gradient(150deg, #8B3A0F, #D4A017);
+}
+
+[data-restaurant="austin-grill"] .nav-button {
+    background: #FDF4E7;
+    color: #2A1A0E;
+}
+
+[data-restaurant="austin-grill"] .nav-button:hover {
+    background: #F5E8CC;
+}
+
+[data-restaurant="austin-grill"] .story-title {
+    color: #8B3A0F;
+}
+
+[data-restaurant="austin-grill"] .dish-title {
+    color: #2A1A0E;
+}
+
+[data-restaurant="austin-grill"] .features-list li::marker {
+    color: #D4A017;
+}
+
+[data-restaurant="austin-grill"] .quote-bubble {
+    background: #8B3A0F;
+}
+
+[data-restaurant="austin-grill"] .quote-bubble::after {
+    border-top-color: #8B3A0F;
+}
+
+[data-restaurant="austin-grill"] .gallery-item {
+    background: #F5E8CC;
+}
+
+[data-restaurant="austin-grill"] .logo-placeholder,
+[data-restaurant="austin-grill"] .qr-box-header {
+    background: #F5E8CC;
+    color: #2A1A0E;
 }
