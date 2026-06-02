@@ -3,38 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rosa &amp; Figlio – Chef’s Canvas Menu</title>
+  <title>Rosa &amp; Figlio – Chef's Canvas Menu</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: "Georgia", "Times New Roman", serif;
       background: #2b201f;
       color: #f7ecde;
     }
-
     .page {
       max-width: 1100px;
       margin: 0 auto;
       padding: 24px 18px 40px;
     }
-
     header {
       text-align: center;
       margin-bottom: 28px;
     }
-
     .brand {
       font-size: 1.6rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: #f9e6d1;
     }
-
     .title {
       font-size: 1.2rem;
       margin-top: 6px;
@@ -42,7 +35,6 @@
       text-transform: uppercase;
       opacity: 0.9;
     }
-
     .subtitle {
       margin-top: 10px;
       font-size: 0.95rem;
@@ -52,78 +44,55 @@
       margin-right: auto;
       line-height: 1.5;
     }
-
     .back-link {
       display: inline-block;
       margin-top: 14px;
       padding: 8px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(0,0,0,0.25);
       background: #f4e1c9;
       color: #3e2520;
       text-decoration: none;
       font-size: 0.85rem;
     }
-
-    .back-link:hover {
-      filter: brightness(0.96);
-    }
-
-    .menu-section {
-      margin-bottom: 30px;
-    }
-
+    .back-link:hover { filter: brightness(0.96); }
+    .menu-section { margin-bottom: 30px; }
     .section-title {
       font-size: 1rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       margin-bottom: 10px;
       color: #f3d0ae;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
       padding-bottom: 8px;
     }
-
     .dish-row {
       display: flex;
       justify-content: space-between;
       gap: 16px;
       padding: 12px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-
-    .dish-main {
-      max-width: 760px;
-    }
-
-    .dish-name {
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
+    .dish-main { max-width: 760px; }
+    .dish-name { font-weight: 600; font-size: 1rem; }
     .dish-desc {
       font-size: 0.9rem;
       opacity: 0.85;
       margin-top: 4px;
       line-height: 1.45;
     }
-
     .dish-price {
       white-space: nowrap;
       font-size: 0.95rem;
       opacity: 0.95;
       padding-left: 10px;
     }
-
     .menu-link {
       color: inherit;
       text-decoration: none;
-      border-bottom: 1px dotted rgba(247, 236, 222, 0.55);
+      border-bottom: 1px dotted rgba(247,236,222,0.55);
     }
-
-    .menu-link:hover {
-      border-bottom-style: solid;
-    }
-
+    .menu-link:hover { border-bottom-style: solid; }
     .featured-label {
       display: inline-block;
       margin-left: 8px;
@@ -133,28 +102,16 @@
       color: #f3d0ae;
       opacity: 0.95;
     }
-
     .note {
       margin-top: 22px;
       font-size: 0.85rem;
       opacity: 0.8;
       line-height: 1.5;
     }
-
     @media (max-width: 700px) {
-      .dish-row {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .dish-price {
-        margin-top: 4px;
-        padding-left: 0;
-      }
-
-      .subtitle {
-        font-size: 0.92rem;
-      }
+      .dish-row { flex-direction: column; align-items: flex-start; }
+      .dish-price { margin-top: 4px; padding-left: 0; }
+      .subtitle { font-size: 0.92rem; }
     }
   </style>
 </head>
@@ -164,9 +121,8 @@
       <div class="brand">Rosa &amp; Figlio</div>
       <div class="title">Dinner Menu</div>
       <div class="subtitle">
-        Explore the dishes below. Each featured item links to its own Chef’s Canvas dish page for story, video, and richer discovery.
+        Explore the dishes below. Each featured item links to its own Chef's Canvas dish page for story, video, and richer discovery.
       </div>
-
       <a href="#" class="back-link">← Back to Rosa &amp; Figlio Home</a>
     </header>
 
@@ -176,7 +132,7 @@
       <div class="dish-row">
         <div class="dish-main">
           <div class="dish-name">
-            <a href="/rosa-figlio/dish/chianti-braised-short-rib" class="menu-link">
+            <a href="/rosa-figlio/dish/chianti-braised-short-rib" class="menu-link" target="_blank">
               Chianti-Braised Short Rib
             </a>
             <span class="featured-label">Featured Dish</span>
@@ -191,7 +147,7 @@
       <div class="dish-row">
         <div class="dish-main">
           <div class="dish-name">
-            <a href="/rosa-figlio/dish/truffle-tagliatelle" class="menu-link">
+            <a href="/rosa-figlio/dish/truffle-tagliatelle" class="menu-link" target="_blank">
               Truffle Tagliatelle
             </a>
           </div>
@@ -205,7 +161,7 @@
       <div class="dish-row">
         <div class="dish-main">
           <div class="dish-name">
-            <a href="/rosa-figlio/dish/tuscan-herb-roasted-chicken" class="menu-link">
+            <a href="/rosa-figlio/dish/tuscan-herb-roasted-chicken" class="menu-link" target="_blank">
               Tuscan Herb-Roasted Chicken
             </a>
           </div>
@@ -232,7 +188,7 @@
 
       <div class="dish-row">
         <div class="dish-main">
-          <div class="dish-name">Nonna’s Meatballs</div>
+          <div class="dish-name">Nonna's Meatballs</div>
           <div class="dish-desc">
             Slow-simmered in San Marzano tomato sauce, pecorino, basil.
           </div>
@@ -242,7 +198,7 @@
     </section>
 
     <p class="note">
-      Prototype note: in a full Chef’s Canvas implementation, this menu page would be generated dynamically from the CMS and each linked dish would connect to story, video, and structured data.
+      Prototype note: in a full Chef's Canvas implementation, this menu page would be generated dynamically from the CMS and each linked dish would connect to story, video, and structured data.
     </p>
   </div>
 </body>
