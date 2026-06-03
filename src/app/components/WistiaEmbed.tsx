@@ -19,7 +19,7 @@ export default function WistiaEmbed({ wistiaVideoId, className }: Props) {
       }}
     >
       <iframe
-        src={`https://fast.wistia.net/embed/iframe/${wistiaVideoId}?autoPlay=false&fitStrategy=fill`}
+        src={`https://fast.wistia.net/embed/iframe/${wistiaVideoId}?autoPlay=false&fitStrategy=cover`}
         title="Wistia video player"
         allow="autoplay; fullscreen"
         allowFullScreen
