@@ -152,6 +152,7 @@ body {
 
 .hero-video {
     width: 100%;
+    height: 480px;
     background: radial-gradient(circle at top, #7A1F1F 0, #3b1a14 55%, #120705 100%);
     border-radius: 14px;
     position: relative;
@@ -472,6 +473,7 @@ iframe, video, img {
     .hero-video {
         aspect-ratio: 1 / 1;
         height: auto;
+        min-height: 300px;
         overflow: hidden;
     }
 
