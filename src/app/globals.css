@@ -470,7 +470,8 @@ iframe, video, img {
     }
 
     .hero-video {
-        height: 320px;
+        aspect-ratio: 1 / 1;
+        height: auto;
         overflow: hidden;
     }
 
