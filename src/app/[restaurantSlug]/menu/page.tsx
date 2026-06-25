@@ -200,7 +200,7 @@ export default async function MenuPage(props: {
                   <div style={{ fontWeight: 600, fontSize: "1rem" }}>
                     {dish.hasDishPage ? (
                       <>
-                        <a href={`/${rs}/dish/${dish.slug}`} style={{ color: "inherit", textDecoration: "none", borderBottom: `1px dotted ${d.linkColor}` }}>
+                        <a href={`/${rs}/dish/${dish.slug}`} target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", borderBottom: `1px dotted ${d.linkColor}` }}>
                           {dish.title}
                         </a>
                         <span style={{ marginLeft: "8px", fontSize: "0.7rem", letterSpacing: "0.08em", textTransform: "uppercase", color: accent, opacity: 0.95 }}>
