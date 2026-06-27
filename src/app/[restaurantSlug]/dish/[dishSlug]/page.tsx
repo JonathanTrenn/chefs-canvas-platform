@@ -50,6 +50,7 @@ type Dish = {
 
 type Restaurant = {
   name?: string;
+  tagline?: string;
   slug?: string;
   shortDescription?: string;
   servesCuisine?: string;
@@ -121,6 +122,7 @@ async function getRestaurant(rs: string): Promise<Restaurant | null> {
   const query = `
     *[_type == "restaurant" && slug.current == $rs][0]{
       name,
+      tagline,
       "slug": slug.current,
       shortDescription,
       servesCuisine,
@@ -226,6 +228,8 @@ export default async function DishPage(props: {
         ctaNote={dish.ctaNote}
         ctas={dish.ctas}
         restaurantSlug={rs}
+        restaurantName={restaurant?.name}
+        restaurantTagline={restaurant?.tagline}
         prevDishSlug={dish.prevDishSlug}
         nextDishSlug={dish.nextDishSlug}
       />
