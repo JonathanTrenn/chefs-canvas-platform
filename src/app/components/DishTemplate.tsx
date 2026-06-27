@@ -39,6 +39,8 @@ export default function DishTemplate({
   ctas,
 
   restaurantSlug,
+  restaurantName,
+  restaurantTagline,
   prevDishSlug,
   nextDishSlug,
 }: {
@@ -58,6 +60,8 @@ export default function DishTemplate({
   ctas?: DishCta[];
 
   restaurantSlug: string;
+  restaurantName?: string;
+  restaurantTagline?: string;
   prevDishSlug?: string;
   nextDishSlug?: string;
 }) {
@@ -76,10 +80,12 @@ const nextHref = nextDishSlug
     quoteText ??
     "One of the most memorable dishes I’ve had in years — rich, comforting, and beautifully presented.";
 
-  const displayQuoteSource = quoteSource ?? "Prototype Guest Review";const meta = restaurantMeta[restaurantSlug] ?? {
+ const fallback = restaurantMeta[restaurantSlug] ?? {
     name: restaurantSlug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
     tagline: "",
   };
+  const displayName = restaurantName ?? fallback.name;
+  const displayTagline = restaurantTagline ?? fallback.tagline;
 
   return (
     <div className="page" data-restaurant={restaurantSlug}>
@@ -89,8 +95,8 @@ const nextHref = nextDishSlug
 
       <header className="top-header">
         <div className="logo-placeholder">
-          {meta.name}
-          <span className="mark">{meta.tagline}</span>
+          {displayName}
+          <span className="mark">{displayTagline}</span>
         </div>
 
         <div className="dish-heading">
