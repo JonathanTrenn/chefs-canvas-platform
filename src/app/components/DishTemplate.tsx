@@ -79,6 +79,7 @@ const nextHref = nextDishSlug
   const displayQuoteText =
     quoteText ??
     "One of the most memorable dishes I’ve had in years — rich, comforting, and beautifully presented.";
+  const displayQuoteSource = quoteSource ?? "Prototype Guest Review";
 
  const fallback = restaurantMeta[restaurantSlug] ?? {
     name: restaurantSlug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
