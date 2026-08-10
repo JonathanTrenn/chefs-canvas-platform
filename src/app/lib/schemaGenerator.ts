@@ -47,6 +47,7 @@ export type SchemaDish = {
   slug: string;
   description?: string;
   ingredientsSummary?: string;
+  preparationMethod?: string;
   price?: number;
   currency?: string;
   heroImageUrl?: string;
@@ -153,7 +154,10 @@ export function buildDishPageGraph(
         "priceCurrency": dish.currency ?? "USD",
       };
     }
-
+// Cooking method
+    if (dish.preparationMethod) {
+      menuItemNode["cookingMethod"] = dish.preparationMethod;
+    }
     // Dietary
     if (dish.suitableForDiet && dietMap[dish.suitableForDiet]) {
       menuItemNode["suitableForDiet"] = dietMap[dish.suitableForDiet];
