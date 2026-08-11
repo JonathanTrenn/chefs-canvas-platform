@@ -34,6 +34,7 @@ type Dish = {
   prevDishSlug?: string;
   nextDishSlug?: string;
   ingredientsSummary?: string;
+  preparationMethod?: string;
   price?: number;
   currency?: string;
   videoThumbnailUrl?: string;
