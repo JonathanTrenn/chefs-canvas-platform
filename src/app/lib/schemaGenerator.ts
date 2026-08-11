@@ -154,9 +154,17 @@ export function buildDishPageGraph(
         "priceCurrency": dish.currency ?? "USD",
       };
     }
-// Cooking method
+// Cooking method — output as additionalProperty for strict Schema.org compliance
     if (dish.preparationMethod) {
-      menuItemNode["cookingMethod"] = dish.preparationMethod;
+      const cookingMethodProp = {
+        "@type": "PropertyValue",
+        "name":  "cookingMethod",
+        "value": dish.preparationMethod,
+      };
+      menuItemNode["additionalProperty"] = [
+        ...((menuItemNode["additionalProperty"] as object[]) || []),
+        cookingMethodProp,
+      ];
     }
     // Dietary
     if (dish.suitableForDiet && dietMap[dish.suitableForDiet]) {
