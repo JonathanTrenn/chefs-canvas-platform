@@ -180,9 +180,9 @@ export function buildDishPageGraph(
       }));
     }
 
-    // Link back to restaurant
+ // Link back to restaurant using isPartOf (Schema.org compliant on MenuItem)
     if (restaurant.schemaEnabled !== false) {
-      menuItemNode["provider"] = {
+      menuItemNode["isPartOf"] = {
         "@id": `https://${restaurant.slug}.chefs-canvas.com/#restaurant`,
       };
     }
