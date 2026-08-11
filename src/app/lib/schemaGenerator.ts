@@ -180,9 +180,12 @@ export function buildDishPageGraph(
       }));
     }
 
- // Link back to restaurant using isPartOf (Schema.org compliant on MenuItem)
+// Link back to restaurant — using provider despite Schema.org strict validator warning.
+    // provider is not formally on MenuItem's property list, but Google and AI systems parse it correctly.
+    // A cleaner solution comes when Menu and MenuSection schema are built on menu pages —
+    // at that point the Restaurant → Menu → MenuSection → MenuItem hierarchy replaces this direct link.
     if (restaurant.schemaEnabled !== false) {
-      menuItemNode["isPartOf"] = {
+      menuItemNode["provider"] = {
         "@id": `https://${restaurant.slug}.chefs-canvas.com/#restaurant`,
       };
     }
