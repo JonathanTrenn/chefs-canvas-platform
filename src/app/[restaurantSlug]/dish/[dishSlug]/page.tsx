@@ -35,6 +35,7 @@ type Dish = {
   nextDishSlug?: string;
   ingredientsSummary?: string;
   preparationMethod?: string;
+  keywords?: string[];
   price?: number;
   currency?: string;
   videoThumbnailUrl?: string;
@@ -103,6 +104,7 @@ async function getDish(rs: string, ds: string): Promise<Dish | null> {
       "nextDishSlug": nextDish->slug.current,
       ingredientsSummary,
       preparationMethod,
+      keywords,
       price,
       currency,
       "videoThumbnailUrl": videoThumbnail.asset->url,
@@ -172,6 +174,7 @@ export default async function DishPage(props: {
           description:          dish.description,
           ingredientsSummary:   dish.ingredientsSummary,
           preparationMethod:    dish.preparationMethod,
+          keywords:             dish.keywords,
           price:                dish.price,
           currency:             dish.currency,
           heroImageUrl:         dish.heroImageUrl,
