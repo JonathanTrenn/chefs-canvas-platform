@@ -167,9 +167,18 @@ export function buildDishPageGraph(
         cookingMethodProp,
       ];
     }
-    // Keywords — discovery tags output as a formal Schema.org keywords array
+    // Keywords — output as additionalProperty entries for Schema.org strict compliance.
+    // keywords is not formally on MenuItem's property list, so we wrap each tag as a PropertyValue.
     if (dish.keywords && dish.keywords.length > 0) {
-      menuItemNode["keywords"] = dish.keywords;
+      const keywordProps = dish.keywords.map((kw) => ({
+        "@type": "PropertyValue",
+        "name":  "keyword",
+        "value": kw,
+      }));
+      menuItemNode["additionalProperty"] = [
+        ...((menuItemNode["additionalProperty"] as object[]) || []),
+        ...keywordProps,
+      ];
     }
     // Dietary
     if (dish.suitableForDiet && dietMap[dish.suitableForDiet]) {
