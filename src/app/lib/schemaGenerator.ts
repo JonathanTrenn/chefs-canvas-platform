@@ -48,6 +48,7 @@ export type SchemaDish = {
   description?: string;
   ingredientsSummary?: string;
   preparationMethod?: string;
+  keywords?: string[];
   price?: number;
   currency?: string;
   heroImageUrl?: string;
