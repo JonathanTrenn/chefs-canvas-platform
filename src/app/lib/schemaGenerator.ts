@@ -167,6 +167,10 @@ export function buildDishPageGraph(
         cookingMethodProp,
       ];
     }
+    // Keywords — discovery tags output as a formal Schema.org keywords array
+    if (dish.keywords && dish.keywords.length > 0) {
+      menuItemNode["keywords"] = dish.keywords;
+    }
     // Dietary
     if (dish.suitableForDiet && dietMap[dish.suitableForDiet]) {
       menuItemNode["suitableForDiet"] = dietMap[dish.suitableForDiet];
