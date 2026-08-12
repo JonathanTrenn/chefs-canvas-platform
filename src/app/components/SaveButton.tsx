@@ -31,7 +31,7 @@ export default function SaveButton() {
 
   return (
     <button type="button" className="nav-button" onClick={handleSave}>
-      <span className="icon">★</span> {isSaved ? "Saved" : "Save"}
+      <span className="icon">★</span> {isSaved ? "Faved" : "Fave"}
     </button>
   );
 }
