@@ -34,7 +34,7 @@ type Dish = {
   prevDishSlug?: string;
   nextDishSlug?: string;
   ingredientsSummary?: string;
-  preparationMethod?: string;
+  preparationMethod?: string[];
   keywords?: string[];
   price?: number;
   currency?: string;
