@@ -47,7 +47,7 @@ export type SchemaDish = {
   slug: string;
   description?: string;
   ingredientsSummary?: string;
-  preparationMethod?: string;
+  preparationMethod?: string[];
   keywords?: string[];
   price?: number;
   currency?: string;
@@ -155,16 +155,16 @@ export function buildDishPageGraph(
         "priceCurrency": dish.currency ?? "USD",
       };
     }
-// Cooking method — output as additionalProperty for strict Schema.org compliance
-    if (dish.preparationMethod) {
-      const cookingMethodProp = {
+// Cooking methods — one additionalProperty entry per selected method
+    if (dish.preparationMethod && dish.preparationMethod.length > 0) {
+      const cookingMethodProps = dish.preparationMethod.map((method) => ({
         "@type": "PropertyValue",
         "name":  "cookingMethod",
-        "value": dish.preparationMethod,
-      };
+        "value": method,
+      }));
       menuItemNode["additionalProperty"] = [
         ...((menuItemNode["additionalProperty"] as object[]) || []),
-        cookingMethodProp,
+        ...cookingMethodProps,
       ];
     }
     // Keywords — output as additionalProperty entries for Schema.org strict compliance.
