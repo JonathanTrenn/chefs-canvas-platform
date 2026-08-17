@@ -49,6 +49,7 @@ export type SchemaDish = {
   ingredientsSummary?: string;
   preparationMethod?: string[];
   keywords?: string[];
+  culinaryRegion?: string[];
   price?: number;
   currency?: string;
   heroImageUrl?: string;
@@ -167,7 +168,7 @@ export function buildDishPageGraph(
         ...cookingMethodProps,
       ];
     }
-    // Keywords — output as additionalProperty entries for Schema.org strict compliance.
+  // Keywords — output as additionalProperty entries for Schema.org strict compliance.
     // keywords is not formally on MenuItem's property list, so we wrap each tag as a PropertyValue.
     if (dish.keywords && dish.keywords.length > 0) {
       const keywordProps = dish.keywords.map((kw) => ({
@@ -180,18 +181,31 @@ export function buildDishPageGraph(
         ...keywordProps,
       ];
     }
-    // Dietary
-    if (dish.suitableForDiet && dietMap[dish.suitableForDiet]) {
-      menuItemNode["suitableForDiet"] = dietMap[dish.suitableForDiet];
+    // Culinary regions — one additionalProperty entry per selected region
+    if (dish.culinaryRegion && dish.culinaryRegion.length > 0) {
+      const culinaryRegionProps = dish.culinaryRegion.map((region) => ({
+        "@type": "PropertyValue",
+        "name":  "culinaryRegion",
+        "value": region,
+      }));
+      menuItemNode["additionalProperty"] = [
+        ...((menuItemNode["additionalProperty"] as object[]) || []),
+        ...culinaryRegionProps,
+      ];
     }
+    // Dietary
 
-    // Allergens as additionalProperty
-    if (dish.allergenTags?.length) {
-      menuItemNode["additionalProperty"] = dish.allergenTags.map(tag => ({
+// Allergens — one additionalProperty entry per allergen, preserving prior entries
+    if (dish.allergenTags && dish.allergenTags.length > 0) {
+      const allergenProps = dish.allergenTags.map((tag) => ({
         "@type": "PropertyValue",
         "name":  "allergen",
         "value": tag,
       }));
+      menuItemNode["additionalProperty"] = [
+        ...((menuItemNode["additionalProperty"] as object[]) || []),
+        ...allergenProps,
+      ];
     }
 
 // Link back to restaurant — using provider despite Schema.org strict validator warning.
