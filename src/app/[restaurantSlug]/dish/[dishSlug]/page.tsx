@@ -42,6 +42,10 @@ type Dish = {
   videoThumbnailUrl?: string;
   videoTitle?: string;
   videoDescription?: string;
+  videoUploadDate?: string;
+  videoDurationMinutes?: number;
+  videoDurationSeconds?: number;
+  videoTranscript?: string;
   suitableForDiet?: string;
   allergenTags?: string[];
   quoteApprovedSchema?: boolean;
@@ -112,6 +116,10 @@ async function getDish(rs: string, ds: string): Promise<Dish | null> {
       "videoThumbnailUrl": videoThumbnail.asset->url,
       videoTitle,
       videoDescription,
+      videoUploadDate,
+      videoDurationMinutes,
+      videoDurationSeconds,
+      videoTranscript,
       suitableForDiet,
       allergenTags,
       quoteApprovedSchema,
@@ -185,6 +193,10 @@ export default async function DishPage(props: {
           wistiaVideoId:        dish.wistiaVideoId,
           videoTitle:           dish.videoTitle,
           videoDescription:     dish.videoDescription,
+          videoUploadDate:      dish.videoUploadDate,
+          videoDurationMinutes: dish.videoDurationMinutes,
+          videoDurationSeconds: dish.videoDurationSeconds,
+          videoTranscript:      dish.videoTranscript,
           suitableForDiet:      dish.suitableForDiet,
           allergenTags:         dish.allergenTags,
           quoteText:            dish.quoteText,
