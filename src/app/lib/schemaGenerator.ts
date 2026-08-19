@@ -57,6 +57,10 @@ export type SchemaDish = {
   wistiaVideoId?: string;
   videoTitle?: string;
   videoDescription?: string;
+  videoUploadDate?: string;
+  videoDurationMinutes?: number;
+  videoDurationSeconds?: number;
+  videoTranscript?: string;
   suitableForDiet?: string;
   allergenTags?: string[];
   quoteText?: string;
@@ -222,6 +226,7 @@ export function buildDishPageGraph(
   }
 
   // ── VideoObject node ─────────────────────────────────────────────────────
+    // ── VideoObject node ─────────────────────────────────────────────────────
   // Only generated when schema_video_enabled = true AND a video exists
   if (dish.schemaVideoEnabled && dish.wistiaVideoId) {
     const embedUrl = `https://fast.wistia.net/embed/iframe/${dish.wistiaVideoId}`;
@@ -240,9 +245,30 @@ export function buildDishPageGraph(
       videoNode["thumbnailUrl"] = dish.videoThumbnailUrl || dish.heroImageUrl;
     }
 
+    // Upload date — required by Google for valid VideoObject schema
+    if (dish.videoUploadDate) {
+      videoNode["uploadDate"] = dish.videoUploadDate;
+    }
+
+    // Duration — required by Google. Assemble ISO 8601 from minutes and seconds fields.
+    // Format: PT[M]M[S]S — for example PT2M30S = 2 minutes 30 seconds.
+    // Only output if at least one of minutes or seconds has a positive value.
+    const mins = dish.videoDurationMinutes ?? 0;
+    const secs = dish.videoDurationSeconds ?? 0;
+    if (mins > 0 || secs > 0) {
+      videoNode["duration"] = `PT${mins}M${secs}S`;
+    }
+
+    // Transcript — optional but highly valuable for AI systems reading video content
+    if (dish.videoTranscript) {
+      videoNode["transcript"] = dish.videoTranscript;
+    }
+
+    // TODO: contentUrl — requires Wistia API integration to fetch the direct video file URL.
+    // Deferred until Wistia API automation is built (see roadmap Item A1 automation path).
+
     nodes.push(videoNode);
   }
-
   // ── Review node ──────────────────────────────────────────────────────────
   // Double gate: schema_review_enabled AND quote_approved_schema must both be true
   if (
