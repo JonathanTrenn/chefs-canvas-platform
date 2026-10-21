@@ -78,7 +78,10 @@ async function getRestaurant(rs: string): Promise<Restaurant | null> {
   return client.fetch(
     `*[_type == "restaurant" && slug.current == $rs][0]{
       name, "slug": slug.current, tagline, lightDarkPreference,
-      backgroundColor, textPrimaryColor, accentColor, headingFont, bodyFont, websiteUrl
+            "backgroundColor": backgroundColor.hex,
+      "textPrimaryColor": textPrimaryColor.hex,
+      "accentColor": accentColor.hex,
+      headingFont, bodyFont, websiteUrl
     }`,
     { rs }
   );
